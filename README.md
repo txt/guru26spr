@@ -18,7 +18,7 @@
 
 | 📅 Week of... | 🎓 Lecture | 🛠️ Submission <br>(due start of class) | 📝 Review |
 |:-------------:|:----------:|:---------------------------:|:---------:|
-| Jan 12 | [Policy and Mechanism](docs/lect/policymechanism.md) | | |
+| Jan 12 | [Policy and Mechanism](docs/lect/policy.md) | | |
 | Jan 19 | Mon: MLK Day (no class) | | |
 | Jan 26 | |1a | |
 | Feb 02 | |1b | |
