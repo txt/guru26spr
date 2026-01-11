@@ -14,14 +14,14 @@
 <h1 align="center">:cyclone: CSC491/591: How to be a SE Guru <br>NC State, Spring '26</h1>
 <img src="https://raw.githubusercontent.com/txt/guru26spr/refs/heads/main/etc/img/banenr.png"> 
 
-<img width=300 src="https://raw.githubusercontent.com/txt/guru26spr/refs/heads/main/etc/img/guru.png" align=right>
+<img width=200 src="https://raw.githubusercontent.com/txt/guru26spr/refs/heads/main/etc/img/guru.png" align=right>
 
 Q: What is a software guru?     
 A: First to get hired.  Last to get fired. 
 
-While LLMs might be able to repalce the average programmer 
+While LLMs might be able to replace the average programmer 
 (or [maybe not](https://www.youtube.com/watch?v=tbDDYKRFjhk)),
-the point of being a guru is that youare **not** average.
+the point of being a guru is that you're **not** average.
 
 The guru engineer is the one who stands out in the IT crowd.
 They know more than everyone else. They know how to improve everyone
@@ -70,7 +70,7 @@ work remains accessible to future generations.
 | Apr 01 | |5b | |
 | Apr 08 | |6a | |
 | Apr 15 | |6b | |
-| Apr 22 |shw 'n tell |  | |
+| Apr 22 |show 'n tell |  | |
 | Apr 29 |no class (reading day) | | |
 | May 01 | exam | | |
 </div>
