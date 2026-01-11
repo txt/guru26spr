@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://github.com/txt/guru26spr/blob/main/README.md"><img 
      src="https://img.shields.io/badge/Home-%23ff5733?style=flat-square&logo=home&logoColor=white" /></a>
-  <a href="https://github.com/txt/guru26spr/blob/main/docs/syllabus.md"><img 
+  <a href="https://github.com/txt/guru26spr/blob/main/docs/lect/syllabus.md"><img 
       src="https://img.shields.io/badge/Syllabus-%230055ff?style=flat-square&logo=openai&logoColor=white" /></a>
   <a href="https://docs.google.com/spreadsheets/d/12Jg_K_E4t8qo0O2uBE-s_t4IAR8f4lXjrdBiItLVs_8/edit?gid=0#gid=0"><img
       src="https://img.shields.io/badge/Teams-%23ffd700?style=flat-square&logo=users&logoColor=white" /></a>
