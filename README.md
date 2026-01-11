@@ -56,7 +56,7 @@ work remains accessible to future generations.
 
 | 📅 Date | 🎓 Lecture | 🛠️ Submission <br>(due start of class) | 📝 Review |
 |:-------------:|:----------:|:---------------------------:|:---------:|
-| Jan 14 |[rules](docs/lect/rules.md)<br> [Policy and Mechanism](docs/lect/policy.md) | | |
+| Jan 14 |[rules](docs/lect/rules.md) | | |
 | Jan 21 | |[1a](docs/submit/hw1.md) | |
 | Jan 28 | |1b | |
 | Feb 04 | |2a | |

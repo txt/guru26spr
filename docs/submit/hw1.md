@@ -17,6 +17,11 @@
 
 # Homework: Refactor the Word Frequency Counter
 
+YOu will need these files:
+
+- sample data: [essay.txt](essay.txt)
+- sample code: [wc0.py](wc0.py)
+
 ## Overview
 
 You've learned 5 SE design heuristics:
@@ -24,7 +29,6 @@ You've learned 5 SE design heuristics:
 2. **Single Responsibility Principle (SRP)** - One function, one job
 3. **Mechanism vs Policy** - Separate rules from code
 4. **Small Functions** - Keep functions short and obvious
-5. **Streaming Over Loading** - Process incrementally when possible
 
 Now apply them to this messy word counter!
 
@@ -60,155 +64,28 @@ Top 10 most frequent words:
 
 ## The Violations
 
-### 1. Separation of Concerns (SoC)
-**Printing mixed throughout the function:**
-- Lines 8-10: Header printing
-- Lines 24-26: Stats printing
-- Lines 27-32: Results printing
+Can you find and fix tese:
 
-**Problem:** Can't test logic without capturing stdout. 
-Can't reuse for API or GUI. Can't change output format 
-without editing business logic.
+Q1. What Separation of Concerns (SoC) issues? What problems do they cause
 
-### 2. Single Responsibility Principle (SRP)
-**The `count_words()` function does EVERYTHING:**
-- Reads file
-- Cleans words
-- Counts frequencies
-- Sorts results
-- Filters top N
-- Formats output
-- Prints results
+Q2. Single Responsibility Principle (SRP) issues? Can you list functions containing multiple other candidate functions?
 
-**33 lines doing 7+ responsibilities!**
+Q3. Mechanism vs Policy issues? Can you find them?
 
-### 3. Mechanism vs Policy
-**Hardcoded policies scattered throughout:**
-
-**Line 14:** 
-```python
-stopwords = ["the", "a", "an", ...]  # Hardcoded list!
-```
-- Policy: which words to ignore
-- Should be: data in CONFIG
-
-**Line 18:**
-```python
-word = word.strip('.,!?;:"()')  # Hardcoded punctuation!
-```
-- Policy: which characters to remove
-- Should be: data in CONFIG
-
-**Line 23:**
-```python
-top_n = 10  # Hardcoded!
-```
-- Policy: how many results to show
-- Should be: parameter or CONFIG
-
-### 4. Small Functions
-**The `count_words()` function is 33 lines!**
-
-Should be split into:
-- `readText(file)` - 3 lines
-- `cleanWord(word, punct)` - 2 lines
-- `countWords(text, stopwords, punct)` - 8 lines
-- `topN(counts, n)` - 2 lines
-- `analyze(file)` - 6 lines (orchestrates)
-- `showHeader(file)` - 4 lines
-- `showStats(result)` - 3 lines
-- `showTop(result, n)` - 6 lines
-- `report(file, result)` - 4 lines
-- `count_words(file)` - 3 lines (main)
-
-### 5. Streaming Over Loading
-**Line 7:** 
-```python
-text = f.read()  # Loads entire file
-```
-
-For this small example, not critical. But shows the pattern.
-For large files, could process line by line.
+Q4. Any small Functions pribems (Hint: yes). How to fix?
 
 ## Your Assignment
 
-Refactor `wc0.py` following the 5 heuristics.
+Refactor `wc0.py` following the 4 heuristics.
+Hand in a printd version of hc1.py with commetns on what parts of the code fix what heuristcs. Make sure you ahve lots
+of comemtns. Make sure they include symbols like (Q1,Q2, Q3, AQ4)
 
 ### Required Changes:
 
-**1. Separate model from presentation**
-- Extract: `readText()`, `countWords()`, `topN()`, `analyze()`
-- Keep all business logic I/O-free
-- Create: `showHeader()`, `showStats()`, `showTop()` for printing
-
-**2. Single responsibility per function**
-- Main function should be < 5 lines
-- Each helper should do ONE thing
-- Name functions clearly: verb + noun
-
-**3. Extract policies to data**
-```python
-CONFIG = {
-  'top_n': 10,
-  'stopwords': ["the", "a", "an", ...],
-  'punctuation': '.,!?;:"()-'
-}
-```
-
-**4. Keep functions small**
-- No function > 10 lines
-- Most functions: 2-6 lines
-- Extract until obvious
-
-**5. Consider streaming**
-- Don't require loading entire file
-- For this example, current approach is fine
-
-### Deliverables:
-
-1. **Your refactored code** (~75-85 lines)
-2. **Test it runs:** Should produce same results as wc0.py
-3. **Brief comments:** Explain which rule you applied where
-
-### Expected Structure:
-
-```python
-#--- Policy (data) ---
-CONFIG = {
-  'top_n': 10,
-  'stopwords': [...],
-  'punctuation': '...'
-}
-
-#--- Model (pure functions, no I/O) ---
-def readText(file): ...
-def cleanWord(word, punct): ...
-def countWords(text, stopwords, punct): ...
-def topN(counts, n): ...
-def analyze(file): ...
-
-#--- Presentation (I/O only) ---
-def showHeader(file): ...
-def showStats(result): ...
-def showTop(result, n): ...
-def report(file, result): ...
-
-#--- Main ---
-def count_words(file):
-  result = analyze(file)
-  report(file, result)
-  return result
-```
-
-## Grading Rubric:
-
-- **SoC (30%)**: Model/View completely separated
-- **SRP (20%)**: Each function has one clear job
-- **Mechanism vs Policy (20%)**: Policies in CONFIG
-- **Small Functions (20%)**: No function > 10 lines
-- **Code Quality (10%)**: Clear names, readable
-- **Bonus**: half a mark for each working bonus
-
+-  Separate model from presentation**
+- Single responsibility per function**
+- Extract policies to data
+-  Keep functions small**
 ## Testing Your Code:
 
 Your refactored code should produce the **exact same output**
@@ -249,56 +126,6 @@ diff before.txt after.txt  # Should be identical!
    ```
 
 ## Hints:
-
-**Start with SoC:**
-1. First, extract `showHeader()`, `showStats()`, `showTop()`
-2. Move all printing to these functions
-3. Make main function return data structure
-
-**Then extract business logic:**
-1. Extract `cleanWord()` - just word cleaning
-2. Extract `countWords()` - just counting
-3. Extract `topN()` - just sorting/filtering
-
-**Then pull out policies:**
-1. Create CONFIG dict at top
-2. Replace hardcoded values with CONFIG references
-
-**Finally, check sizes:**
-1. Is any function > 10 lines? Split it
-2. Does each function have a clear single purpose?
-
-## Common Mistakes to Avoid:
-
-❌ **Don't just add functions that still print:**
-```python
-def countWords(text):
-  counts = {}
-  # ... counting ...
-  print(f"Counted {len(counts)} words")  # BAD!
-  return counts
-```
-
-✓ **Functions should be pure (I/O-free):**
-```python
-def countWords(text, stopwords, punct):
-  counts = {}
-  # ... counting ...
-  return counts  # GOOD!
-```
-
-❌ **Don't leave policies hardcoded:**
-```python
-def countWords(text):
-  stopwords = ["the", "a", ...]  # Still hardcoded!
-```
-
-✓ **Pass policies as parameters:**
-```python
-def countWords(text, stopwords, punct):
-  # Uses parameters!
-```
-
 ## Expected Results:
 
 **Before (wc0.py):**
@@ -312,13 +139,6 @@ def countWords(text, stopwords, punct):
 - 10+ small focused functions
 - CONFIG for all policies
 - Clean separation of concerns
-
-**The trade-off:** Almost double the lines, but:
-- Each function is trivial to understand
-- Easy to test each piece
-- Easy to reuse (API, GUI, batch)
-- Easy to change policies
-- Easy to maintain
 
 ## Final Check:
 
@@ -334,4 +154,4 @@ Good luck! This is much simpler than the grade calculator,
 so you should be able to complete it in about 1 hour.
 
 **Remember:** The goal isn't just to make it work, but to
-make it *well-structured* following the 5 heuristics.
+make it *well-structured* following the 4 heuristics.
