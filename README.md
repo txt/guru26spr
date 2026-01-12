@@ -20,8 +20,10 @@ Q: What is a software guru?
 A: First to get hired.  Last to get fired. 
 
 While LLMs might be able to replace the average programmer 
-(or [maybe not](https://www.youtube.com/watch?v=tbDDYKRFjhk)),
+(\*)
 the point of being a guru is that you're **not** average.
+
+(\*) (But [maybe not](https://www.youtube.com/watch?v=tbDDYKRFjhk). See also [1](https://docs.google.com/presentation/d/1mR4jzEWzN5IQdtfSIovU2-YbEcvCZoaPAp5vDBFejqI/edit?slide=id.g3824839c8bf_4_29#slide=id.g3824839c8bf_4_29).)
 
 The guru engineer is the one who stands out in the IT crowd.
 When the stuff hits the fan, they are the ones who fix things, quickest.
