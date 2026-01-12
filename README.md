@@ -24,6 +24,7 @@ While LLMs might be able to replace the average programmer
 the point of being a guru is that you're **not** average.
 
 The guru engineer is the one who stands out in the IT crowd.
+When the stuff hits the fan, they are the ones who fix things, quickest.
 They know more than everyone else. They know how to improve everyone
 else's code, possessing a clear, unshakeable vision of what separates
 good work from bad. They identify friction and fix it rather than
@@ -32,14 +33,17 @@ reviews that elevate the entire team's standard. By bridging the
 gap between raw coding speed and enduring engineering value, the
 guru becomes the team's anchor.
 
-To achieve this, one must go beyond the standard curriculum. While
+To achieve this, one must go beyond the standard curriculum.  Its not about
+knowing XYZ, but knowing how to know what matters, for whatever it is you
+are doing. Its not having a full tank, but knowing how to fill it further.
+While
 [other subjects](https://missing.csail.mit.edu/) cover the critical
 "how" of our trade—mastering the command line, editors, and version
 control—true craftsmanship requires pairing this proficiency with
 the "why." We must fuse technical agility with timeless Software
 Engineering principles that transcend any single language
 (things like YAGNI,
-DRY, Separation of Concerns, and VITAL). This combination transforms
+DRY, Separation of Concerns, Dependency Injection, VITAL, etc etc). This combination transforms
 you from a passive user of tools into an architect of control.
 
 We define this control through the motto: "Own what matters (VITAL),
