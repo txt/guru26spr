@@ -70,7 +70,7 @@ Lectures will be recorded.
 |Instructions       | Learning activities in this course will include  homework and in-class quizzes|
 |Tool used          | All grades will be recorded in Moodle.<br> All student work will be in Github (public GH, not the NCSU version).|
 |Auditing           | not permitted |
-|Attendance         | Mandatory but there are in-class quizzes. Also, all homework are handed in, on paper, by all members of a group. Anyone missing gets a cross. First three crosses cost nothing. After that, each cross is -1 mark. |
+|Attendance         | Mandatory but there are in-class quizzes. Also, all homework are handed in, on paper, by all members of a group. Anyone missing gets a cross. First TWO crosses cost nothing. After that, each cross is -1 mark. |
 |Technical requirements | A laptop computer is required in each lecture for students taking this course.  NC State’s Online and Distance Education provides technology requirements and recommendations for computer hardware, and NC State’s Office of Information Technology provides recommendations for your computer . |
 
 
