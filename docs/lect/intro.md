@@ -31,10 +31,11 @@ than anyone else
 - Cause of green
 - Cause of backpacking
   - https://corecursive.com/066-sqlite-with-richard-hipp/
+  - The BerkleyDB story
 - Cause of supply chain dangers
   - [Welcome to the npm registry ](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*MrEp6Y0l1B7Ixt5mfE3fWA.png)
     - 3.1 million packages
   - [How one developer broke JS, will 11 lines of code](https://www.theregister.com/2016/03/23/npm_left_pad_chaos/)
   - [Supply chain attacks](https://en.wikipedia.org/wiki/2024_Lebanon_electronic_device_attacks)
-- Cause it fights a [congitive problem](https://www.nature.com/articles/s41586-021-03380-y)
-- Cause of [amazing discoveries](https://arxiv.org/pdf/2512.13524)
+- Cause it fights a [cognitive problem](https://www.nature.com/articles/s41586-021-03380-y)
+- Cause of [amazing discoveries](https://arxiv.org/df/2512.13524)
