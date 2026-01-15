@@ -3,7 +3,7 @@
      src="https://img.shields.io/badge/Home-%23ff5733?style=flat-square&logo=home&logoColor=white" /></a>
   <a href="https://github.com/txt/guru26spr/blob/main/docs/lect/syllabus.md"><img 
       src="https://img.shields.io/badge/Syllabus-%230055ff?style=flat-square&logo=openai&logoColor=white" /></a>
-  <a href="https://docs.google.com/spreadsheets/d/12Jg_K_E4t8qo0O2uBE-s_t4IAR8f4lXjrdBiItLVs_8/edit?gid=0#gid=0"><img
+  <a href="https://docs.google.com/spreadsheets/d/1xZfIwkmu6hTJjXico1zIzklt1Tl9-L9j9uHrix9KToU/edit?usp=sharing"><img
       src="https://img.shields.io/badge/Teams-%23ffd700?style=flat-square&logo=users&logoColor=white" /></a>
   <a href="https://moodle-courses2527.wolfware.ncsu.edu/course/view.php?id=8118&bp=s"><img 
       src="https://img.shields.io/badge/Moodle-%23dc143c?style=flat-square&logo=moodle&logoColor=white" /></a>
@@ -24,7 +24,7 @@ crisis.
 
 ---
 
-## PART 1: THE HOOK (5 minutes)
+## PART 1: THE HOOK 
 ### 1.1 The Mystery of the First Line
 
 Open almost any script on a Unix or Linux system, and you see
@@ -62,7 +62,7 @@ software architecture.
 
 ---
 
-## PART 2: THE PROBLEM IT SOLVES (10 minutes)
+## PART 2: THE PROBLEM IT SOLVES 
 ### 2.1 The Diamond vs. The LEGO Set
 
 **Question:** Why has Unix survived for 50+ years while other
@@ -116,7 +116,7 @@ at work.
 
 ---
 
-## PART 3: THE PRINCIPLE (15 minutes)
+## PART 3: THE PRINCIPLE 
 ### 3.1 The Canonical Sources
 
 This idea has a name and a history:
@@ -245,7 +245,7 @@ checkout = Checkout(EmailNotifier())  # or SMSNotifier()
 
 ---
 
-## PART 4: THE PATTERN EVERYWHERE (20 minutes)
+## PART 4: THE PATTERN EVERYWHERE 
 ### 4.1 Recognizing the Pattern
 
 Once you see it, you see it everywhere. Let's rapid-fire through
@@ -449,7 +449,7 @@ of intent.
 
 ---
 
-## PART 5: THE ORGANIZATIONAL SUPERPOWER (15 minutes)
+## PART 5: THE ORGANIZATIONAL SUPERPOWER 
 ### 5.1 Why This Matters for Management
 
 So far we've talked about code. But the real impact is
@@ -581,7 +581,7 @@ stability at the center.
 
 ---
 
-## PART 6: THE DARK SIDE (10 minutes)
+## PART 6: THE DARK SIDE 
 ### 6.1 The Paradox of Freedom
 
 So far, this sounds perfect. We separated Mechanism from Policy,
@@ -747,7 +747,7 @@ machines we built.
 
 ---
 
-## PART 7: WHEN TO SEPARATE, WHEN NOT TO (5 minutes)
+## PART 7: WHEN TO SEPARATE, WHEN NOT TO 
 ### 7.1 Design Guidance
 
 **Separation is NOT always the answer.** Sometimes coupling is
@@ -819,7 +819,7 @@ correct.
 
 ---
 
-## PART 8: CONCLUSION (5 minutes)
+## PART 8: CONCLUSION 
 ### 8.1 The Big Picture
 
 We started with a simple question: *What does that `#!/usr/bin/env

@@ -3,9 +3,9 @@
      src="https://img.shields.io/badge/Home-%23ff5733?style=flat-square&logo=home&logoColor=white" /></a>
   <a href="https://github.com/txt/guru26spr/blob/main/docs/lect/syllabus.md"><img 
       src="https://img.shields.io/badge/Syllabus-%230055ff?style=flat-square&logo=openai&logoColor=white" /></a>
-  <a href="https://docs.google.com/spreadsheets/d/12Jg_K_E4t8qo0O2uBE-s_t4IAR8f4lXjrdBiItLVs_8/edit?gid=0#gid=0"><img
+  <a href="https://docs.google.com/spreadsheets/d/1xZfIwkmu6hTJjXico1zIzklt1Tl9-L9j9uHrix9KToU/edit?usp=sharing"><img
       src="https://img.shields.io/badge/Teams-%23ffd700?style=flat-square&logo=users&logoColor=white" /></a>
-  <a href="https://moodle-courses2527.wolfware.ncsu.edu/course/view.php?id=8118&bp=s"><img 
+  <a href="https://moodle-courses2527.wolfware.ncsu.edu/course/view.php?id=8119"><img 
       src="https://img.shields.io/badge/Moodle-%23dc143c?style=flat-square&logo=moodle&logoColor=white" /></a>
   <a href="https://discord.gg/vCCXMfzQ"><img 
       src="https://img.shields.io/badge/Chat-%23008080?style=flat-square&logo=discord&logoColor=white" /></a>
@@ -62,7 +62,7 @@ work remains accessible to future generations.
 
 | 📅 Date | 🎓 Lecture | 🛠️ Submission <br>(due start of class) | 📝 Review |
 |:-------------:|:----------:|:---------------------------:|:---------:|
-| Jan 14 |[rules](docs/lect/rules.md) | | |
+| Jan 14 |[intro](docs/lect/intro.md)<br>[rules](docs/lect/rules.md) | | |
 | Jan 21 | |[1a](docs/submit/hw1.md) | |
 | Jan 28 | |1b | |
 | Feb 04 | |2a | |
@@ -76,9 +76,7 @@ work remains accessible to future generations.
 | Apr 01 | |5b | |
 | Apr 08 | |6a | |
 | Apr 15 | |6b | |
-| Apr 22 |show 'n tell |  | |
+| Apr 22 | |   | |
 | Apr 29 |no class (reading day) | | |
 | May 01 | exam | | |
 </div>
-
-(For grad students, 5a 6ab, 7ab will be combined.)

@@ -3,7 +3,7 @@
      src="https://img.shields.io/badge/Home-%23ff5733?style=flat-square&logo=home&logoColor=white" /></a>
   <a href="https://github.com/txt/guru26spr/blob/main/docs/lect/syllabus.md"><img 
       src="https://img.shields.io/badge/Syllabus-%230055ff?style=flat-square&logo=openai&logoColor=white" /></a>
-  <a href="https://docs.google.com/spreadsheets/d/12Jg_K_E4t8qo0O2uBE-s_t4IAR8f4lXjrdBiItLVs_8/edit?gid=0#gid=0"><img
+  <a href="https://docs.google.com/spreadsheets/d/1xZfIwkmu6hTJjXico1zIzklt1Tl9-L9j9uHrix9KToU/edit?usp=sharing"><img
       src="https://img.shields.io/badge/Teams-%23ffd700?style=flat-square&logo=users&logoColor=white" /></a>
   <a href="https://moodle-courses2527.wolfware.ncsu.edu/course/view.php?id=8118&bp=s"><img 
       src="https://img.shields.io/badge/Moodle-%23dc143c?style=flat-square&logo=moodle&logoColor=white" /></a>
@@ -67,15 +67,16 @@ Lectures will be recorded.
 |Catalog Description| Other classes teach you all about advanced topics within CS, from operating systems to machine learning, but there’s one missed subject: proficiency with their tools. Our motto: “be quiet or I will replace you with one tiny shell script”. |
 |Textbook | None |
 |Structure          | The majority of this course is synchronous, delivered through real-time, face-to-face class sessions. |
-|Instructions       | Learning activities in this course will include  homework and in-class quizes and (for grad students) an end of semester team presentations|
+|Instructions       | Learning activities in this course will include  homework and in-class quizzes|
 |Tool used          | All grades will be recorded in Moodle.<br> All student work will be in Github (public GH, not the NCSU version).|
 |Auditing           | not permitted |
-|Attendance         | Mandatory but there are in-class quizzes. Also, all homeworks are handed in, on paper, by all members of a group. Anyone missing gets a cross. First three crosses cost nothing. After that, each cross is -1 mark. |
+|Attendance         | Mandatory but there are in-class quizzes. Also, all homework are handed in, on paper, by all members of a group. Anyone missing gets a cross. First TWO crosses cost nothing. After that, each cross is -1 mark. |
 |Technical requirements | A laptop computer is required in each lecture for students taking this course.  NC State’s Online and Distance Education provides technology requirements and recommendations for computer hardware, and NC State’s Office of Information Technology provides recommendations for your computer . |
 
 
  Tools:
 
+- Prgramming heuristics: YAGNI, KISS, DRY,  SOC, etc etc
 - The shell (e.g. bash, pipes,etc,)
 - Shell Tools and Scripting (e,g, grep, sed,gawk, lua, etc)
 - Editors (e.g. Micro, Vim, etc)
@@ -88,9 +89,6 @@ Lectures will be recorded.
 - Tiny databases
 - Documentation (Latex,Pandoc, etc)
 
-Topics: 
-
-- YAGNI, KISS, DRY,  SOC, etc etc
 
 Tasks:
 
@@ -107,7 +105,7 @@ and then in a maximal way (go crazy on every advanced feature and package).
 
 - Students will achieve a high level of expertise in  SE , mastery of the knowledge in that fields and the ability to apply this knowledge and graduate school experiences to critical research problems
 - Students will apply SE  methods/tools to problems in SE  and describe the methods/tools effectively
-- Graduate students will become independent researchers in SE developing a substantial expertise in that area that allows them to make an original contribution to it
+- Graduate students will show advanced proficiency in these tools.
 
 
 
@@ -115,9 +113,11 @@ and then in a maximal way (go crazy on every advanced feature and package).
 ## Assessment
  
 - Ugrad students: teams of three: 6 homeworks 
-- Grad students: teams of two: 4  homeworks and a two part assignment at end resulting in in-class presentations. 
+  - For ugrads, bonus marks in homeworks are optional (there for fun, no marks)
+- Grad students: teams of two: 6  homeworks
+  - For grads, bonus marks in homeworks are required
 - Homeworks: submit something one week, review someone else's next week.
-- Weekly in-class quizes (2 marks each). If you miss any quizzes then for the first two misses, you get the mean
+- Weekly in-class quizzes (2 marks each). If you miss any quizzes then for the first two misses, you get the mean
   mark scored by the rest of the class. After that, you score zero.
 - Classes are in person. To ensure that, all submissions are in-person, by the whole group.
   Anyone missing gets a cross. First two crosses cost nothing. After that, each cross is -1 mark.
@@ -132,17 +132,17 @@ Quizzes are on-line.
 
 
 - In class quiz: 2 marks each (11 of those)
-- Grad students: 4 homeworks and 1 project (13 marks for hw, 26 marks for hw)
+- 6 homeworks  (13 marks each)
   - 10 marks for an initial submission
   - 3 marks to review someone else's submission
-- Ugrad students: 6 homewworks, 13 marks each
 - Total: 100 marks
 
 End of term there will be a optional exam for students who want to make up lost marks:
 
-- Students can identity one submission of 11 marks and one submission of  13 marks that they would like to replace. 
+- Students can identify up to 24 marks of prior submissions they want to replace.
 - The Exam will be out 24 marks.
-- The students' grades for the 11 and 13 will be replaced with the exam result **even if the exam grade is lower**.
+- The students' grades for the prior submissions will be replaced with the exam result **even if the exam grade is lower**.
+
 
 
 With the final grades, the following grade scale will be used: 
@@ -163,7 +163,7 @@ Submissions score one late mark per day (but only -1 for the weekend).
 ## Expectations for learner participation and interaction
 
 
-- Work in public github (lets us browse and help debug yur code).
+- Work in public github (lets us browse and help debug your code).
 
 ## Attendance
 

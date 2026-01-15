@@ -6,6 +6,7 @@
 # * ✅ **macOS (Intel + Apple Silicon)**
 # * ✅ **Ubuntu / Debian**
 # * ✅ **WSL**
+# * ✅ **Arch Linux**
 # * ⚠️ **Other Linux distros** → still works via **Linuxbrew**, system deps skipped safely
 # * ❌ **No assumptions** about `sudo`, `apt`, `bashrc`, or shell
 # * ✅ **Safe re-runs** (idempotent)
@@ -37,13 +38,17 @@ command -v sudo &>/dev/null && SUDO="sudo" || SUDO=""
 echo "   OS=$OS  ARCH=$ARCH  WSL=$IS_WSL"
 
 # ------------------------------------------------------------
-# 1. System prerequisites (best-effort, Ubuntu/Debian only)
+# 1. System prerequisites (best-effort, Ubuntu/Debian/Arch only)
 # ------------------------------------------------------------
 if $IS_LINUX && command -v apt &>/dev/null; then
   echo "📦 Installing system prerequisites (apt)..."
   $SUDO apt update -y
   $SUDO apt install -y \
     build-essential procps curl file git perl || true
+elif $IS_LINUX && command -v pacman &>/dev/null; then
+  echo "📦 Installing system prerequisites (pacman)..."
+  $SUDO pacman -Sy --needed --noconfirm \
+    base-devel procps-ng curl file git perl || true
 else
   echo "ℹ️  No supported system package manager detected; skipping sys deps"
 fi
@@ -151,8 +156,19 @@ echo "✅ Installation complete"
 echo "   Shell: $SHELL"
 echo "   Brew:  $(brew --prefix)"
 echo
-echo "👉 Restart your terminal or run:"
-echo "   source \"$SHELL_RC\""
+SHELL_RC=""
+if [[ -f "$HOME/.bashrc" && "$SHELL" == *"bash"* ]]; then
+  SHELL_RC="$HOME/.bashrc"
+elif [[ -f "$HOME/.zshrc" && "$SHELL" == *"zsh"* ]]; then
+  SHELL_RC="$HOME/.zshrc"
+fi
+
+if [[ -n "$SHELL_RC" ]]; then
+  echo "👉 Restart your terminal or run:"
+  echo "   source \"$SHELL_RC\""
+else
+  echo "👉 Restart your terminal to activate changes"
+fi
 
 # ---
 # 
