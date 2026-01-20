@@ -64,7 +64,7 @@ work remains accessible to future generations.
 |:-------------:|:----------:|:---------------------------:|:---------:|
 | Jan 14 |[intro](docs/lect/intro.md)<br>[rules](docs/lect/rules.md) | | [one](docs/review/one.md) |
 | Jan 21 | |[1a](docs/submit/hw1.md) | |
-| Jan 28 | |1b | |
+| Jan 28 | |[1b](dpcs/submit/hw1b.md) | |
 | Feb 04 | |2a | |
 | Feb 11 | |2b | |
 | Feb 18 | |3a | |
