@@ -27,7 +27,7 @@ MAKEFLAGS += -s
 # luac -p
 # lua compiler, parse only looking for errors
 
-%.lua : %.md
+%.lua : %.md ## make fred.lua eg=xxx
 	gawk 'sub(/^```.*/,"") { y = 1 - y }  \
 	                  	    { print (y ? "" : "-- ") $$0}' $< > $@
 	luac -p $@ && lua $@ --$(eg)

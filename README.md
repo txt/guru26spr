@@ -63,13 +63,8 @@ work remains accessible to future generations.
 | 📅 Date | 🎓 Lecture | 🛠️ Submission <br>(due start of class) | 📝 Review |
 |:-------------:|:----------:|:---------------------------:|:---------:|
 | Jan 14 |[intro](docs/lect/intro.md)<br>[rules](docs/lect/rules.md) | | [one](docs/review/one.md) |
-<<<<<<< HEAD
-| Jan 21 | [poly+inherit](docs/lect/w2prompt.md)<br>[regx](docs/lect/w2re.md)|[1a](docs/submit/hw1.md) | |
-| Jan 28 | |1b | |
-=======
-| Jan 21 | |[1a](docs/submit/hw1.md) | |
+| Jan 21 | [poly+inherit](docs/lect/w2prompt.md)<br>[regx](docs/lect/w2re.md)<br>[fun](docs/lect/fun.md) <br>[gawk](docs/lect/w2gawk.md)|[1a](docs/submit/hw1.md) | |
 | Jan 28 | |[1b](docs/submit/hw1b.md) | |
->>>>>>> 91672c1a962d88951d6a504b5e83f70e68092657
 | Feb 04 | |2a | |
 | Feb 11 | |2b | |
 | Feb 18 | |3a | |

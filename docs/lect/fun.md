@@ -124,6 +124,8 @@ function at(t)
   return cat(#t>0 and map(t,at) or sort(kap(t,kv))) end --  X and Y or Z == X ? Y : Z
 ```
 
+(Aside: In the above, `sort(kap..` was needed since the travesal order of dictionaries is not defined in Lua. So we impose that sort order.)
+)
 Example of polymorphism: different shapes, same interface
 
 ```lua
@@ -140,21 +142,108 @@ eg["--poly"] = function(_,   shapes)
 That polymorphism is so handy, its actually expected in Lua code
 
 ```lua
+-- 1. Helper
 function isa(x,y) x.__index=x; return setmetatable(y,x) end 
-
-Person={}
-function Person:new(name,age) return isa(Person,{name=name, dob=age-1900}) end
-
 NOW = 2026
-function Person:age() return (NOW - self.dob) end
 
-eg["--q"] = function(   who)
-   who=Person:new("tim", 2000)
-   print(at(who))
-   print(who:age()) end
+-- 2. Base Class
+Person={}
+function Person:new(name, born) 
+  return isa(Person, {name=name, born=born}) 
+end
+
+-- The Magic Method
+function Person:__tostring() 
+  return self.name .. " is " .. (NOW - self.born) .. " years old."
+end
+
+-- 3. Subclass
+Employee = isa(Person, {}) 
+function Employee:new(name, born, job)
+    local e = Person:new(name, born)
+    e.job = job
+    return isa(Employee, e)
+end
+
+-- Override the Magic Method
+function Employee:__tostring()
+    return self.name .. " (" .. self.job .. ") age " .. (NOW - self.born)
+end
+
+-- 4. Demo
+eg["--q"] = function(_, p,e)
+  p = Person:new("Tim", 2000)
+  e = Employee:new("Jane", 1995, "programmer")
+  print(p)      --> Tim is 26 years old.
+  print(e) end  --> Jane (Coprogrammerder) age 31
 ```
 
-And finally, a test suite:
+## Dunders in Lua
+
+# Lua Metamethods (Metatables) Cheat Sheet
+
+A quick reference for Lua's special metatable events.
+
+### 1. String & Life Cycle
+Control how objects print, concatenate, and clean up.
+
+| Key | Purpose | Example |
+| :--- | :--- | :--- |
+| `__tostring` | **Stringify**: Custom print format. | `print(obj)` |
+| `__concat` | **Join**: `..` operator behavior. | `obj .. "txt"` | 
+
+### 2. Access & Assignment (The OOP Core)
+These control how data is read or written, forming the basis of Lua Classes.
+
+| Key | Purpose | Example |
+| :--- | :--- | :--- |
+| `__index` | **Read Missing**: Look up unknown keys. | `x.missing_key` |
+| `__newindex` | **Write**: Capture assignment to keys. | `x.new_key = 5` |
+| `__call` | **Callable**: Make table function-like. | `x(arg)` |
+| `__len` | **Length**: `#` operator (Lua 5.2+). | `#x` |
+
+### 3. Mathematical Operators
+Enable math operations (`+`, `-`, `*`) and comparisons.
+
+| Key | Purpose | Example |
+| :--- | :--- | :--- |
+| `__add` | **Add**: `+` operator. | `x + y` |
+| `__sub` | **Sub**: `-` operator. | `x - y` |
+| `__mul` | **Mul**: `*` operator. | `x * y` |
+| `__div` | **Div**: `/` operator. | `x / y` |
+| `__unm` | **Neg**: `-` unary (negative). | `-x` |
+| `__eq` | **Equal**: `==` check. | `x == y` |
+| `__lt` | **Less**: `<` check. | `x < y` |
+| `__le` | **Less/Eq**: `<=` check. | `x <= y` |
+
+---
+
+### Implementation Example
+
+```lua
+Wallet={}
+function Wallet.new(m) return isa(Wallet, {money=m}) end
+
+function Wallet:__tostring() return "$"..self.money end
+
+function Wallet:__call() print("Cha-ching!") end
+
+function Wallet:__add(o)
+  return Wallet.new(self.money + (type(o)=="table" and o.money or o)) end
+
+-- Usage
+eg["--z"] = function(_, w1,w2)
+  w1 = Wallet.new(50)
+  w2 = Wallet.new(20)
+  print(w1)         -- Output: $50 (uses __tostring)
+  local w3 = w1 + w2-- Output: $70 (uses __add)
+  print(w3) 
+  w1()   end           -- Output: Cha-ching! (uses __call)
+```
+
+## Epilog
+
+A test suite for all the above
 
 ```lua
 eg["--all"]= function(_,    fn) 
