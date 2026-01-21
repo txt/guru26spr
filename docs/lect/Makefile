@@ -30,4 +30,5 @@ MAKEFLAGS += -s
 %.lua : %.md
 	gawk 'sub(/^```.*/,"") { y = 1 - y }  \
 	                  	    { print (y ? "" : "-- ") $$0}' $< > $@
-	luac -p $@
+	luac -p $@ && lua $@ --$(eg)
+
