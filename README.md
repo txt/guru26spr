@@ -64,7 +64,7 @@ work remains accessible to future generations.
 |:-------------:|:----------:|:---------------------------:|:---------:|
 | Jan 14 |[intro](docs/lect/intro.md)<br>[rules](docs/lect/rules.md) | | [one](docs/review/one.md) |
 | Jan 21 | [poly+inherit](docs/lect/w2prompt.md)<br>[regx](docs/lect/w2re.md)<br>[fun](docs/lect/fun.md) <br>[gawk](docs/lect/w2gawk.md)|[1a](docs/submit/hw1.md) |  [two](docs/review/w2.md)|
-| Jan 28 | |[1b](docs/submit/hw1b.md) | |
+| Jan 28 | |[1b](docs/submit/hw1b.md) | [w3](docs/review/w3.md) |
 | Feb 04 | |[2a](docs/submit/two/hw2.md) | |
 | Feb 11 | |2b | |
 | Feb 18 | |3a | |
