@@ -1,4 +1,45 @@
-.
+<p align="center">
+  <a href="https://github.com/txt/guru26spr/blob/main/README.md"><img 
+     src="https://img.shields.io/badge/Home-%23ff5733?style=flat-square&logo=home&logoColor=white" /></a>
+  <a href="https://github.com/txt/guru26spr/blob/main/docs/lect/syllabus.md"><img 
+      src="https://img.shields.io/badge/Syllabus-%230055ff?style=flat-square&logo=openai&logoColor=white" /></a>
+  <a href="https://docs.google.com/spreadsheets/d/1xZfIwkmu6hTJjXico1zIzklt1Tl9-L9j9uHrix9KToU/edit?usp=sharing"><img
+      src="https://img.shields.io/badge/Teams-%23ffd700?style=flat-square&logo=users&logoColor=white" /></a>
+  <a href="https://moodle-courses2527.wolfware.ncsu.edu/course/view.php?id=8119"><img 
+      src="https://img.shields.io/badge/Moodle-%23dc143c?style=flat-square&logo=moodle&logoColor=white" /></a>
+  <a href="https://discord.gg/vCCXMfzQ"><img 
+      src="https://img.shields.io/badge/Chat-%23008080?style=flat-square&logo=discord&logoColor=white" /></a>
+  <a href="https://github.com/txt/guru26spr/blob/main/LICENSE.md"><img 
+      src="https://img.shields.io/badge/©%20timm%202026-%234b4b4b?style=flat-square&logoColor=white" /></a></p>
+<h1 align="center">:cyclone: CSC491/591: How to be a SE Guru <br>NC State, Spring '26</h1>
+<img src="https://raw.githubusercontent.com/txt/guru26spr/refs/heads/main/etc/img/banenr.png"> 
+
+Note:
+
+- not the sort of JS seen in job interview questions
+  - no class, prototypes, etc
+- pure functional programming in JS is limited by lack of  tail call optimization
+- JS has some wonderful funnies. Like `x == y` does first tries type conversion  to same type.
+  - `x === y` checks types and values without any conversions.
+
+BTW, this code is all `sync`; i.e. no asynchronous  interlevering of reads threads
+
+```js
+// old school JS node example with call back
+import fs from "fs"
+
+fs.readFile("data.txt", "utf8",
+  (err, s) => err ? die(err) : out(s))
+
+// another eg.
+// note the call back function, run when read happens `r ==> r.text()`
+onst txt = await fetch("data.txt").then(r => r.text())
+
+// chatgpt recommends a slightly different style:
+const r   = await fetch("data.txt")
+const txt = await r.text()
+```
+The following code using `readFileSync` i.e. no `async`.
 
 
 ```js
