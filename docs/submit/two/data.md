@@ -14,6 +14,8 @@
 <h1 align="center">:cyclone: CSC491/591: How to be a SE Guru <br>NC State, Spring '26</h1>
 <img src="https://raw.githubusercontent.com/txt/guru26spr/refs/heads/main/etc/img/banenr.png"> 
 
+# Some Javascript Examples
+
 Note:
 
 - not the sort of JS seen in job interview questions
