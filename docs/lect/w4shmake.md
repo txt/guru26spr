@@ -348,6 +348,10 @@ zsh   # Z Shell (1990) - bash + even more features
 ...   # etc
 ```
 
+zsh, best for bling. see ["oh my zsh"](https://github.com/ohmyzsh):
+
+<img width="2170" height="2418" alt="image" src="https://github.com/user-attachments/assets/3db4ba6a-ea1d-4d04-b6c5-27813774fd64" />
+
 ### Key Differences
 
 ```sh
