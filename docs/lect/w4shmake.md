@@ -126,12 +126,14 @@ echo '$name'         # Single quotes = literal text
 echo "Hi $name!"     # Double quotes = expand variables
 ```
 
-┌─ Reading Guide ────────────────────────────────┐
-│ $var         →  Get variable value             │
-│ "$var"       →  Get value, preserve spaces     │
-│ '$var'       →  Literal text, no expansion     │
-│ var="value"  →  Assign (no spaces around =)    │
-└────────────────────────────────────────────────┘
+```
+┌─ Reading Guide ────────────────────────────────┐   
+│ $var         →  Get variable value             │   
+│ "$var"       →  Get value, preserve spaces     │   
+│ '$var'       →  Literal text, no expansion     │   
+│ var="value"  →  Assign (no spaces around =)    │   
+└────────────────────────────────────────────────┘   
+```
 
 ### Quoting Rules
 
@@ -155,11 +157,12 @@ echo "Today is $today"
 echo "There are $(ls | wc -l) files here"
 ```
 
-┌─ Reading Guide ────────────────────────────────┐
-│ $(command)   →  Run command, capture output    │
-│ `command`    →  Old syntax (harder to nest)    │
-└────────────────────────────────────────────────┘
-
+```
+┌─ Reading Guide ────────────────────────────────┐   
+│ $(command)   →  Run command, capture output    │   
+│ `command`    →  Old syntax (harder to nest)    │   
+└────────────────────────────────────────────────┘   
+```  
 ### Redirection
 
 ```sh
@@ -315,6 +318,7 @@ make ~/tmp/mycode.pdf
 	@open $@
 ```
 
+```
 ┌─ Reading Guide ────────────────────────────────┐
 │ %.pdf: %.py  →  Pattern rule (% matches any)   │
 │ $@           →  Target name (the .pdf file)    │
@@ -322,6 +326,8 @@ make ~/tmp/mycode.pdf
 │ @cmd         →  Run cmd silently (no echo)     │
 │ \            →  Line continuation              │
 └────────────────────────────────────────────────┘
+```
+
 
 By the way, in the above, what happens if `~/tmp` does not exist?
 
@@ -425,12 +431,14 @@ hi() {
 }
 ```
 
+```
 ┌─ Reading Guide ────────────────────────────────┐
 │ gawk -v cols="$*"  →  Pass shell var to awk    │
 │ "$*"               →  All arguments as string  │
 │ $(c[i])            →  Access awk array         │
 │ \033[32m           →  ANSI color code (green)  │
 └────────────────────────────────────────────────┘
+```
 
 Try:
 ```sh
@@ -493,11 +501,13 @@ if true; then
 fi
 ```
 
+```
 ┌─ Reading Guide ────────────────────────────────┐
 │ << EOF       →  Read until line with just EOF  │
 │ << 'EOF'     →  Same but no variable expansion │
 │ <<- EOF      →  Strip leading tabs             │
 └────────────────────────────────────────────────┘
+```
 
 Quick and dirty macro system:
 
@@ -564,11 +574,13 @@ dirty() {
 PS1='\w $(branch)$(dirty) > '
 ```
 
+```
 ┌─ Reading Guide ────────────────────────────────┐
 │ 2>/dev/null  →  Hide error messages            │
 │ grep -q .    →  Quiet mode, just return 0/1    │
 │ && echo "*"  →  Print * only if grep succeeded │
 └────────────────────────────────────────────────┘
+```
 
 Result: `/home/tim main* >`
 
@@ -669,12 +681,14 @@ set -euo pipefail  # Fail fast, catch errors
 [[ -f "$file" ]] && echo "exists"
 ```
 
+```
 ┌─ Reading Guide ────────────────────────────────┐
 │ set -e       →  Exit on any error              │
 │ set -u       →  Exit on undefined variable     │
 │ set -o pipe  →  Exit on pipe failure           │
 │ set -euo...  →  All three safety flags         │
 └────────────────────────────────────────────────┘
+```
 
 ### For Interactive Use: zsh Wins
 
@@ -837,12 +851,14 @@ test:
 	@echo "$(G)PASS$(X): all tests ok"
 ```
 
+```
 ┌─ Reading Guide ────────────────────────────────┐
 │ $(shell cmd) →  Run shell command at parse    │
 │ tput setaf N →  Set foreground color N        │
 │ tput sgr0    →  Reset all attributes          │
 │ @echo        →  Echo without showing command  │
 └────────────────────────────────────────────────┘
+```
 
 ### `make help`
 
@@ -857,12 +873,14 @@ help:  ## Show this help
 	       $(MAKEFILE_LIST)
 ```
 
+```
 ┌─ Reading Guide ────────────────────────────────┐
 │ FS = ":.*?## "    →  Field separator (regex)   │
 │ /pattern/         →  Match lines               │
 │ $$1 $$2           →  $$ escapes $ for shell    │
 │ $(MAKEFILE_LIST)  →  Current Makefile name     │
 └────────────────────────────────────────────────┘
+```
 
 How it works:
 1. Read the Makefile itself (`$(MAKEFILE_LIST)`)
@@ -921,10 +939,12 @@ ok:  ## Run lint + tests
 	@echo "$(G)Ready to commit$(X)"
 ```
 
+```
 ┌─ Reading Guide ────────────────────────────────┐
 │ $(MAKE)      →  Recursive make (not "make")    │
 │ @$(MAKE) foo →  Call another target silently   │
 └────────────────────────────────────────────────┘
+```
 
 Pattern: orchestrate other targets.
 
