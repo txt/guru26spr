@@ -57,6 +57,7 @@ problems. Shell connected them.
 
 Shell wasn't designed to replace other languages. It was designed to
 **connect** them.
+	KD-Tree
 
 Want arithmetic? Hard:
 ```sh
@@ -322,6 +323,10 @@ make ~/tmp/mycode.pdf
 	@open $@
 ```
 
+What just happened?
+
+- the local file mycode.py is pretty printed as ~/tmp/mycode.pdf
+
 ```
 ┌─ Reading Guide ────────────────────────────────┐
 │ %.pdf: %.py  →  Pattern rule (% matches any)   │
@@ -333,7 +338,11 @@ make ~/tmp/mycode.pdf
 ```
 
 
-By the way, in the above, what happens if `~/tmp` does not exist?
+By the way, in the above, what happens:
+
+- if I ran `make ~/tmp/othercode.pdf`?
+- if `~/tmp` does not exist?
+- if you run `make ~/tmp/mycode.odf` twice (and do NOT change `mycode.py` in-between)?
 
 Your job: build tools that save future-you time.
 
@@ -763,10 +772,12 @@ Run it:
 make hello
 ```
 
-┌─ CRITICAL ────────────────────────────────────┐
+```
+┌─ CRITICAL ───────────────────────────────────┐
 │ Makefiles use TABS, not spaces for indents.  │
 │ If you get "missing separator", check tabs.  │
-└───────────────────────────────────────────────┘
+└──────────────────────────────────────────────┘
+```
 
 ### Pattern: Target Depends on Files
 
@@ -821,6 +832,21 @@ Example:
 	echo "Building $@ from $<"
 	# $@ = something.pdf
 	# $< = something.py
+```
+
+Another example
+```makefile
+# maybe not..
+report.txt: data.csv
+	wc -l < data.csv > report.txt
+
+# but
+report.txt: data.csv
+	wc -l < $<   > $@
+
+# or maybe even
+%.txt: %.csv
+	wc -l < $<   > $@
 ```
 
 ### Variable Assignment
@@ -926,6 +952,7 @@ help:  ## Show this help
 
 How it works:
 1. Read the Makefile itself (`$(MAKEFILE_LIST)`)
+2. Set the field separator on  divide on make rules 
 2. Find lines matching `target: ## comment`
 3. Print `target` in blue, `comment` in white
 
