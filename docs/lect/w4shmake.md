@@ -517,7 +517,7 @@ fi
 
 Quick and dirty macro system:
 
-```sh
+```gawk
 src() { cat<<-'EOF' | sed 's/wme/n,mu,m2,sd,has,rows,nump,names/g'
 
 BEGIN { K=1
