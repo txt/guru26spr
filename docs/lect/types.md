@@ -24,7 +24,9 @@ Note:
 - JS has some wonderful funnies. Like `x == y` does first tries type conversion  to same type.
   - `x === y` checks types and values without any conversions.
 
-BTW, this code is all `sync`; i.e. no asynchronous  interlevering of reads threads
+BTW, all my code is all `sync`; i.e. no asynchronous  interlevering of reads threads
+
+Aside: examples of JS asynchronous.
 
 ```js
 // old school JS node example with call back
@@ -32,6 +34,7 @@ import fs from "fs"
 
 fs.readFile("data.txt", "utf8",
   (err, s) => err ? die(err) : out(s))
+console.log(1) // can print before readfile ends
 
 // another eg.
 // note the call back function, run when read happens `r ==> r.text()`
