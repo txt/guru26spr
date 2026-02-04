@@ -138,7 +138,7 @@ let add = (i, v) => {
 ```
 Aside: here is the above in standard JS
 
-```
+```js
 class NUM {
   constructor(d = {}) {
     this.it = "NUM"
@@ -219,7 +219,7 @@ Note the tradeoffs:
 - COL is awkward—factory pattern via static method since it returns different types
 - More verbose, more ceremony, same behavior
 
-Anyway back to JS, backpacking style
+Anyway back to JS, backpacking style (no classes, no prototypes).
 
 
 ```js
