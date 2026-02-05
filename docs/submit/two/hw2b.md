@@ -21,6 +21,7 @@ This rubric uses a split scoring system to ensure both Undergraduate (UG) and Gr
 
 - **UG (CSC491):** Use the **UG Pts** column. Skip questions marked "N/A".
 - **Grad (CSC591):** Use the **Grad Pts** column. All questions are mandatory.
+- **Code Inspection:** As there are no screenshots, grade based on the source code logic, syntax, and implementation of requirements.
 
 ---
 
@@ -43,51 +44,55 @@ This rubric uses a split scoring system to ensure both Undergraduate (UG) and Gr
 ### Detailed Criteria
 
 **A1. Filter Class**
-- [ ] Output contains **only** lines where the last column is exactly `diaporthe-stem-canker`.
+- [ ] Code includes a pattern match or conditional (e.g., `/diaporthe-stem-canker/` or `$NF == "..."`).
+- [ ] Code correctly prints the matching lines (default action or explicit `print`).
 
 **A2. Class Counts**
-- [ ] Output contains a clean list of unique classes followed by their integer counts (e.g., `diaporthe-stem-canker 19`).
+- [ ] Code uses an associative array (e.g., `count[$NF]++`) to track frequencies.
+- [ ] `END` block iterates through the array and prints the class name and count.
 
 **A3. Most Common Value**
-- [ ] Correctly identifies the most frequent value in Column 2 (which is either `1`, `0`, or `?`) and prints its specific count.
+- [ ] Logic correctly iterates through Column 2 values to track the maximum frequency.
+- [ ] Code prints the specific value and its count in the `END` block.
 
 **A4. Cross-tabulation (Grad Only)**
-- [ ] Output follows the format: `class_name value count`.
-- [ ] Shows counts for every distinct value in Column 1, grouped by class.
+- [ ] Code tracks counts using a multi-dimensional key (e.g., `count[$NF, $1]++`).
+- [ ] Nested loops in the `END` block iterate over classes and values to print the required format `class value count`.
 
 **A5. Row Logic & Next**
-- [ ] Rows 1-10 are **always** printed.
-- [ ] Rows 11+ are **only** printed if Column 3 is NOT `?`.
-- [ ] The code uses the `next` keyword to skip remaining logic for excluded rows.
+- [ ] Logic explicitly handles `NR <= 10` (prints unconditionally).
+- [ ] Logic checks `NR > 10` AND `Column 3 != "?"` before printing.
+- [ ] The `next` keyword is used to correctly flow between these states.
 
 **A6. Entropy Function**
-- [ ] A function `entropy(arr, n)` is clearly defined.
-- [ ] The math correctly implements `-sum(p * log(p))` where `p = count/n`.
+- [ ] A function `entropy(arr, n)` is defined in the file.
+- [ ] The mathematical implementation matches `-sum(p * log(p))` logic.
+- [ ] The function is called in the `END` block to print the result.
 
 **A7. Reservoir Sampling (Grad Only)**
-- [ ] Output contains exactly 20 lines (excluding header).
-- [ ] Uses `srand()` and `rand()`.
-- [ ] Running the script twice produces **different** random subsets.
+- [ ] Code calls `srand()` to ensure randomization.
+- [ ] Logic implements reservoir sampling (e.g., `if (rand() < k/n) replace...`) or equivalent random sort logic to select 20 items.
 
 **A8. NB Accuracy**
-- [ ] The Naive Bayes script runs without syntax errors.
-- [ ] The `END` block prints a final accuracy score (e.g., `Accuracy: 85%`).
+- [ ] The Naive Bayes script contains a counter for correct predictions vs total rows.
+- [ ] The `END` block calculates `correct/total` and includes a print statement for the percentage.
 
 **A9. Command Line Variables**
-- [ ] The script accepts a variable (e.g., `wait`) via the `-v` flag.
-- [ ] The loop limit is not hardcoded to `10`.
-- [ ] Changing the argument (e.g., `-v wait=50`) produces a different accuracy result.
+- [ ] The script uses a variable (e.g., `wait`) that is expected to be passed via `-v` (not hardcoded to 10).
+- [ ] The logic uses this variable to control the training/testing split threshold.
 
 **A10. Laplace Smoothing (Grad Only)**
-- [ ] Accepts `k` and `m` via command line.
-- [ ] Numerator uses `(freq + k)`.
-- [ ] Denominator uses `(total + k * Attr[i])`.
-- [ ] Prior probability uses `(Classes[c] + m) / (Total + m * NumClasses)`.
+- [ ] Code references `k` and `m` variables (passed via command line).
+- [ ] Probability calculation numerators use `+ k`.
+- [ ] Probability calculation denominators use `+ k * Attr[i]`.
+- [ ] Prior probability logic uses `m` and `NumClasses` correctly: `(Classes[c] + m) / (Total + m * NumClasses)`.
 
 ---
 
 ## Part B: Lua via Python
 *(UG Total: 2.5 pts | Grad Total: 3.0 pts)*
+
+*Note: This section grades the written text file `partB.txt`.*
 
 | Question | UG Pts | Grad Pts | Description |
 | :--- | :---: | :---: | :--- |
@@ -137,6 +142,8 @@ This rubric uses a split scoring system to ensure both Undergraduate (UG) and Gr
 ## Part C: First-Class Functions
 *(UG Total: 3.0 pts | Grad Total: 3.0 pts)*
 
+*Note: Grade the `fp.lua` source code.*
+
 | Question | UG Pts | Grad Pts | Description |
 | :--- | :---: | :---: | :--- |
 | **C1** | 0.75 | 0.50 | Collect (Map) |
@@ -149,28 +156,31 @@ This rubric uses a split scoring system to ensure both Undergraduate (UG) and Gr
 ### Detailed Criteria
 
 **C1. Collect (Map)**
-- [ ] Returns a **new** table (does not modify input in place).
-- [ ] Correctly applies the function to every element (e.g., `{1,2,3} -> {1,4,9}`).
+- [ ] Function creates and returns a **new** table.
+- [ ] Code iterates input and inserts result of `f(v)` into the new table.
+- [ ] File includes a test call (e.g., `print(table.concat(collect(...)))`).
 
 **C2. Select (Filter)**
-- [ ] Returns a **new** table.
-- [ ] Result contains ONLY elements where `func(x)` returns `true`.
+- [ ] Function creates and returns a **new** table.
+- [ ] Code checks `if f(v)` before inserting into the new table.
 
 **C3. Reject (Filter Not)**
-- [ ] Returns a **new** table.
-- [ ] Result contains ONLY elements where `func(x)` returns `false`.
+- [ ] Function creates and returns a **new** table.
+- [ ] Code checks `if not f(v)` (or equivalent logic) before inserting.
 
 **C4. Inject (Reduce)**
-- [ ] Function accepts an accumulator.
-- [ ] Iterates the list and updates the accumulator using the function (e.g., summing a list).
+- [ ] Function signature includes an accumulator (initial value).
+- [ ] Loop updates the accumulator at every step using `f(acc, v)`.
+- [ ] Returns the final accumulator value.
 
 **C5. Detect (Grad Only)**
-- [ ] Returns the **first** element that matches the condition.
-- [ ] Returns `nil` if no match is found.
+- [ ] Loop applies `f(v)` and immediately returns `v` upon the first true result.
+- [ ] Returns `nil` (implicit or explicit) if the loop completes without a match.
 
 **C6. Range Iterator (Grad Only)**
-- [ ] The function returns a **closure/function**, NOT a table/list.
-- [ ] The test case iterates successfully (e.g., `for x in range(1,5) do print(x) end`).
+- [ ] The function returns a **function/closure** (not a table).
+- [ ] The closure properly updates internal state (current value) on each call.
+- [ ] Code includes a test loop: `for x in range(...) do ... end`.
 
 ---
 
