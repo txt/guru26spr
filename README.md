@@ -66,7 +66,7 @@ work remains accessible to future generations.
 | Jan 21 | [poly+inherit](docs/lect/w2prompt.md)<br>[regx](docs/lect/w2re.md)<br>[fun](docs/lect/fun.md) <br>[gawk](docs/lect/w2gawk.md)|[1a](docs/submit/hw1.md) |  [two](docs/review/w2.md)|
 | Jan 28 | |[1b](docs/submit/hw1b.md) | [w3](docs/review/w3.md) |
 | Feb 04 | [js,types](docs/lect/types.md) <br>[shell,make](docs/lect/w4shmake.md)  |[2a](docs/submit/two/hw2.md) | |
-| Feb 11 | |[2b](https://github.com/txt/guru26spr/blob/main/docs/submit/two/hw2b.md) | |
+| Feb 11 | |[2b](https://github.com/txt/guru26spr/blob/main/docs/submit/two/hw2b.md) | [w4](docs/review/w4.md) |
 | Feb 18 | |3a | |
 | Feb 25 | |3b | |
 | Mar 04 | |4a | |
