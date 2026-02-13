@@ -31,6 +31,12 @@ For support files, go to https://github.com/txt/guru26spr/tree/main/docs/submit/
 5. A short `REPORT.md` (≤ 1 page) summarizing what you found
 
 
+Everyone:
+- do the gawk questions this week (see S1,S2,S3,S4,S5, below)
+- hand in A,B,C,D,E,G, in 2 weeks (see below)
+
+Grad students
+- hand in A...M in 2 weeks ( see below)
 
 ## 1. Show this works:
 

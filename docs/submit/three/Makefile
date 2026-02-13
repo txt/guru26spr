@@ -25,6 +25,7 @@ banner:
 '  \/_____/ \/_____/ \/____/  \/_____/'
 	@printf '\033[0m\n'
 
+<<<<<<< HEAD
 date: ## show date
 	@date
 
@@ -33,6 +34,10 @@ files: ## show files
 
 sh: banner ## run my shell
 	@-bash --init-file etc/ell -i
+=======
+sh: ## run my shell
+	@-HERE=$(HERE) bash --init-file $(HERE)/etc/ell -i
+>>>>>>> d8d2ba10a78b0ecdb84995fb952c0bcdf7f7ff61
 
 push: ## save to cloud
 	@read -p "Reason? " msg; git commit -am "$$msg"; git push; git status
