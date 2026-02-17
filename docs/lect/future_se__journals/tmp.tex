@@ -1,0 +1,247 @@
+\documentclass[sigconf,nonacm]{acmart}
+
+% Metadata and settings for the ACM class
+\settopmatter{printacmref=false} % Removes citation information below abstract
+\renewcommand\footnotetextcopyrightpermission[1]{} % Removes footnote with conference info
+
+\title{The Scalable Future We Built: A 2036 Retrospective on the Evolution of SE Journals}
+
+% Author block - Mapped from provided snippet
+\author{Paris Avgeriou}
+\affiliation{
+  \institution{University of Groningen}
+  \country{Netherlands}
+}
+\email{p.avgeriou@rug.nl}
+
+\author{Robert Feldt}
+\affiliation{
+  \institution{Chalmers University}
+  \country{Sweden}
+}
+\email{robert.feldt@chalmers.se}
+
+\author{Tim Menzies}
+\affiliation{
+  \institution{NC State University}
+  \country{USA}
+}
+\email{timm@ieee.org}
+
+\author{Mauro Pezz\`{e}}
+\affiliation{
+  \institution{USI}
+  \country{Switzerland}
+}
+\email{mauro.pezze@usi.ch}
+
+\author{Abhik Roychoudhury}
+\affiliation{
+  \institution{NUS}
+  \country{Singapore}
+}
+\email{abhik@nus.edu.sg}
+
+\author{Miroslaw Staron}
+\affiliation{
+  \institution{University of Gothenburg}
+  \country{Sweden}
+}
+\email{miroslaw.staron@chalmers.se}
+
+\author{Sebastian Uchitel}
+\affiliation{
+  \institution{Imperial College}
+  \country{UK}
+}
+\email{sebastian.uchitel@gmail.com}
+
+\author{Thomas Zimmermann}
+\affiliation{
+  \institution{University of Washington} % Adjusted based on standard affiliation, snippet was ambiguous
+  \country{USA}
+}
+\email{tzimmer@microsoft.com} 
+
+\begin{document}
+
+\begin{abstract}
+At ICSE 2026, SE journal editors met to consider ways to improve publication in Software Engineering. Empirical evidence was accumulated, patterns were detected, and a new plan was formed for handling the reality of modern publishing. Written ten years later, this short note describes that evidence and how the plan changed SE publishing from 2026 to 2036. We describe the transition from a "Bureaucratic Anomaly" of high-friction peer review to a scalable, unbundled model that prioritized scientific velocity over gatekeeping.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction: Houston, We Have a Problem}
+A 2025 editorial at TOSEM \cite{roychoudhury2026year} emphasized the large volume of submissions that SE journals needed to process. The scale of the journals was clearly growing with time, leading to limitations on scalability. For example, journal associate editors increasingly had to invite up to 20 reviewers just to find two researchers willing to review journal publications. 
+
+One key observation was that it is impossible for most reviews to be conducted by the best-qualified reviewers. Experiments at AI conferences \cite{cortes2021inconsistency} revealed that independent review teams disagree on 50\% of accepted papers, suggesting peer review had become stochastic rather than a reliable merit measure. 
+
+\section{The Bureaucratic Anomaly (1995--2025)}
+\label{sec:anomaly}
+
+From the vantage point of 2036, the "rigorous" peer review landscape we occupied in the mid-2020s appears not as an eternal standard, but as a transient \textit{bureaucratic anomaly}. For a brief period, the community operated under the delusion that the only path to scientific truth lay through a Byzantine architecture of rebuttals, revisions, and gatekeeping—a system that had become mathematically unsustainable and empirically suspect.
+
+\subsection{The Collision of Scale and Stagnation}
+By 2025, the primary bottleneck in Software Engineering was no longer the generation of ideas, but human attention. Roychoudhury \cite{roychoudhury2026year} highlighted that journals saw unprecedented growth, turning administrative burdens into existential threats to quality control. 
+
+The demographic reality was stark. An analysis of top-tier venues (2013--2023) revealed that the SE field comprised roughly 19,000 active researchers, yet the "core" capable of performing high-level review—defined by citation impact—was approximately 2.6\% of that population ($\approx$ 500 researchers) \cite{monperrus2025most}. This asymmetry created a "reviewer famine." The core could not possibly review the "long tail" of submissions, leading to a reliance on junior sub-reviewers and "desk rejects" based on heuristics rather than content.
+
+\subsection{The Effort-Impact Asymmetry}
+While the Reviewer Famine choked the pipeline, the \textit{Effort Trap} discouraged innovation. Luo \cite{luo2025iclr} demonstrated that by 2025, SE had become the "worst for effort" among computer science disciplines. In an analysis of publication exchange rates ("How Many ICLR Publications Is One Paper in Each Area?"), SE ranked sixth out of 27 fields in difficulty, demanding disproportionate time investment for results that were often comparable to lighter-weight venues.
+
+Critically, this massive administrative overhead was spent on artifacts that were largely ignored. Radicchi et al. \cite{radicchi2008universality} established that citation distributions follow universal power laws; a vanishingly small percentage of papers garner the vast majority of attention. Yet, prior to 2026, the community forced every incremental delta through the same heavyweight grinder as a paradigm shift. We were expending maximum energy for minimum velocity.
+
+\subsection{The Dogmas of Legitimacy}
+Why did this system persist? Roumbanis \cite{roumbanis2020two} argued we were paralyzed by the "Dogmas of Peer Review"—specifically the belief that classic peer review was the sole legitimate method for allocating status, even as evidence mounted that it was no better than a lottery \cite{roumbanis2019peer}.
+
+Experiments at major AI conferences (NeurIPS) in 2014 and 2021 empirically proved that independent review teams disagreed on nearly 60\% of accept/reject decisions \cite{cortes2021inconsistency}. Our own analysis of SE reviewing confirmed this stochasticity: SE citations and acceptances followed a power law (Price's Law \cite{price1963little}) rather than a merit-driven bell curve. This suggested that "quality" had become a measure of network centrality (the Matthew Effect \cite{merton1968matthew}) rather than intrinsic scientific merit.
+
+Ultimately, the crisis of 2025 was defined by the collapse of validation. While empirical standards \cite{ralph2021empirical} improved rigor, the pressure to publish led to "validation theatre"—narrow testing on open datasets without critical examination of real-world utility \cite{menzies2014sharing}. The friction was palpable, the yield was low, and industry had largely stopped listening.
+
+\section{Fix \#1: The "Unbundled" Paper}
+
+The solution to the Bureaucratic Anomaly was not to find \textit{more} reviewers, but to fundamentally redefine the unit of work. If the "monolithic paper" was the bottleneck, the fix was to break it apart.
+
+\subsection{Deconstructing the Monolith}
+The traditional SE paper was a dense amalgamation of \textit{Motivation}, \textit{Methodology}, and \textit{Results}. This structure implicitly demanded that every submission present a completed arc of scientific discovery—a requirement that contributed to the high "effort scores" identified by Luo \cite{luo2025iclr}. 
+
+Evidence suggested this monolithic structure was unnecessary. Price's law \cite{price1963little} indicates that 50\% of scientific contributions come from $\sqrt{N}$ of the population; to support the remaining mass of researchers, we needed formats that allowed for incremental contribution. 
+
+Inspired by the concept of Registered Reports \cite{ernst2023registered}, the community moved to unbundle these components into modular publication types:
+\begin{itemize}
+    \item \textbf{Vision Statements (Motivation only):} Peer-reviewed on the validity of the problem and the novelty of the hypothesis.
+    \item \textbf{Registered Reports (Motivation + Method):} As proposed by Ernst and Baldassarre \cite{ernst2023registered}, these protocols were reviewed \textit{before} data collection. This prevented the "file drawer problem" and p-hacking by accepting sound methods regardless of the eventual result.
+    \item \textbf{Tools \& Datasets (Method only):} Validated by technical experts for utility and robustness.
+    \item \textbf{Replication Papers (Results only):} Focused strictly on the corroboration or refutation of existing findings, inheriting their methods from prior work.
+\end{itemize}
+
+\subsection{Efficiency via Specialization}
+Unbundling did not just lower the barrier to entry; it optimized the exit. By 2030, this modularity reduced the average reading time per reviewer by 40\%. A statistician could review a \textit{Methodology} paper without needing to parse the domain context of a specific industry application. A domain expert could validate a \textit{Vision} paper without needing to debug the statistical code.
+
+This effectively decoupled "effort" from "publication." By allowing researchers to publish a rigorous \textit{Method} (and receive credit for it) before spending two years gathering \textit{Results}, we aligned academic incentives with the scientific lifecycle. It addressed the "long tail" problem identified by Radicchi \cite{radicchi2008universality} by allowing smaller, high-quality contributions to stand on their own, rather than forcing them into the bloated format of the "standard technical paper."
+
+\section{Fix \#2: The "Unbundled" Review}
+
+If we do not have the time to fully review all papers, the second fix was to optimize the review process itself. We did not endorse the automatic review of academic papers, but evidence suggested the process could be unbundled into parts suitable for automation and parts requiring human reflection.
+
+\subsection{Structuring the Review}
+Using the Ralph Empirical Standards \cite{ralph2021empirical}, which contained over 135 review items, we derived a gated, hierarchical workflow:
+
+\textbf{Phase 1: Structural Gates (Automated).} The entry level consists of binary checks. These are low-cost, structural validations discernible via pattern matching. Failure here indicates an immature draft. Checks include the existence of replication artifacts (code/data links) and explicit sections for Threats \& Limitations.
+
+\textbf{Phase 2: Descriptive Gates (Extraction).} The second tier validates that essential definitions exist. This requires scanning for specific entities (e.g., clear research questions, definitions of metrics).
+
+\textbf{Phase 3: Cognitive Review (Human Expert).} Only papers passing Phases 1 and 2 reach expert reviewers. This phase consumes 90\% of the cognitive effort and focuses on logic, validity, and nuance. By automating the "sanity checks," human reviewers were freed to focus on the intellectual delta of the work.
+
+\section{The 2035 Synthesis}
+
+In 2035, we no longer rely on a single method. The "Scalable Journal" of today utilizes a pipeline that synthesizes the proposals debated in 2025:
+
+\begin{enumerate}
+    \item \textbf{Tier 1: AI Triage.} All submissions are processed by an Agentic AI compliant with the 2025 TOSEM standards. This agent checks for scope, formatting, and prior art overlap \cite{roychoudhury2026year}.
+    \item \textbf{Tier 2: Registered Methodology.} For empirical SE papers, we prioritize Registered Reports. This shifted the review load to the start of the project, preventing wasted effort on flawed study designs \cite{ernst2023registered}.
+    \item \textbf{Tier 3: The Human-AI Hybrid.} For the remaining papers, human reviewers act as "Meta-Reviewers." They do not read the paper line-by-line initially; they interrogate an AI that has "read" the paper to verify claims and hallucinations.
+\end{enumerate}
+
+The result was many more smaller papers, with significantly more filtering prior to extensive manual review.
+
+\section{Conclusion}
+
+The scale problems of 2025 were solved not by working harder, but by changing the definition of the work. By employing careful experimentation with Agentic AI, and accepting the statistical realities of peer review \cite{cortes2021inconsistency}, we moved from a system of "Quality Control by Guarding" to "Quality Control by Filtering." The journal of 2036 is an open platform, not a fortress.
+
+% BIBLIOGRAPHY
+\begin{thebibliography}{99}
+
+\bibitem{cortes2021inconsistency}
+C. Cortes and N. D. Lawrence. 2021.
+\newblock Inconsistency in Conference Peer Review: Revisiting the 2014 NeurIPS Experiment.
+\newblock \emph{arXiv preprint arXiv:2109.09774} (2021).
+
+\bibitem{ernst2023registered}
+N. A. Ernst and M. T. Baldassarre. 2023.
+\newblock Registered reports in software engineering.
+\newblock \emph{Empirical Software Engineering} 28, 2 (2023), 55.
+
+\bibitem{lincoln2012matilda}
+A. E. Lincoln, S. Pincus, J. B. Koster, and P. S. Leboy. 2012.
+\newblock The Matilda Effect in science: Awards and prizes in the US, 1990s and 2000s.
+\newblock \emph{Social Studies of Science} 42, 2 (2012), 307--320.
+
+\bibitem{luo2025iclr}
+Z. Luo. 2025.
+\newblock ICLR Points: How Many ICLR Publications Is One Paper in Each Area?
+\newblock \emph{arXiv preprint arXiv:2503.16623} (2025).
+
+\bibitem{mathew2023finding}
+G. Mathew, A. Agrawal, and T. Menzies. 2023.
+\newblock Finding Trends in Software Research.
+\newblock \emph{IEEE Transactions on Software Engineering} 49, 4 (2023), 1397--1410.
+
+\bibitem{menzies2014sharing}
+T. Menzies, E. Kocaguneli, B. Turhan, L. Minku, and F. Peters. 2014.
+\newblock Sharing data and models in software engineering.
+\newblock Morgan Kaufmann, 2014.
+
+\bibitem{merton1968matthew}
+R. K. Merton. 1968.
+\newblock The Matthew Effect in Science.
+\newblock \emph{Science} 159, 3810 (1968), 56--63.
+
+\bibitem{monperrus2025most}
+M. Monperrus. 2025.
+\newblock Most Cited Papers in Software Engineering 2013-2023.
+\newblock KTH Royal Institute of Technology, 2025.
+
+\bibitem{price1963little}
+D. J. de Solla Price. 1963.
+\newblock \emph{Little Science, Big Science}.
+\newblock Columbia University Press, 1963.
+
+\bibitem{radicchi2008universality}
+F. Radicchi, S. Fortunato, and C. Castellano. 2008.
+\newblock Universality of citation distributions: Toward an objective measure of scientific impact.
+\newblock \emph{PNAS} 105, 45 (2008), 17268--17272.
+
+\bibitem{ralph2021empirical}
+P. Ralph et al. 2021.
+\newblock Empirical Standards for Software Engineering Research.
+\newblock \emph{arXiv preprint arXiv:2010.03525} (2021).
+
+\bibitem{roumbanis2019peer}
+L. Roumbanis. 2019.
+\newblock Peer Review or Lottery? A Critical Analysis of Two Different Forms of Decision-making Mechanisms.
+\newblock \emph{Science, Technology, \& Human Values} 44, 6 (2019), 994--1019.
+
+\bibitem{roumbanis2020two}
+L. Roumbanis. 2020.
+\newblock Two dogmas of peer-reviewism.
+\newblock \emph{Social Epistemology} (2020).
+
+\bibitem{roychoudhury2026year}
+A. Roychoudhury. 2026.
+\newblock A Year in TOSEM: New Research Award, Agentic AI Special Issue and Much More.
+\newblock \emph{ACM Transactions on Software Engineering and Methodology} 35, 1 (2026).
+
+\bibitem{runeson2009guidelines}
+P. Runeson and M. H{\"o}st. 2009.
+\newblock Guidelines for conducting and reporting case study research in software engineering.
+\newblock \emph{Empirical Software Engineering} 14, 2 (2009), 131--164.
+
+\bibitem{theisen2017writing}
+C. Theisen, M. Dunaiski, L. Williams, and W. Visser. 2017.
+\newblock Writing good software engineering research papers: Revisited.
+\newblock In \emph{ICSE-C}.
+
+\bibitem{weisberg2009epistemic}
+M. Weisberg and R. Muldoon. 2009.
+\newblock Epistemic landscapes and the division of cognitive labor.
+\newblock \emph{Philosophy of Science} 76, 2 (2009), 225--252.
+
+\bibitem{wohlin2012experimentation}
+C. Wohlin et al. 2012.
+\newblock \emph{Experimentation in Software Engineering}.
+\newblock Springer, 2012.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,139 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{10}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{} and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showURL}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showURL #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[Cortes and Lawrence(2021)]%
+        {cortes2021inconsistencyconferencepeerreview}
+\bibfield{author}{\bibinfo{person}{Corinna Cortes} {and} \bibinfo{person}{Neil~D. Lawrence}.} \bibinfo{year}{2021}\natexlab{}.
+\newblock \bibinfo{title}{Inconsistency in Conference Peer Review: Revisiting the 2014 NeurIPS Experiment}.
+\newblock
+\showeprint[arxiv]{2109.09774}~[cs.DL]
+\urldef\tempurl%
+\url{https://arxiv.org/abs/2109.09774}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Ernst and Baldassarre(2023)]%
+        {ernst2023registered}
+\bibfield{author}{\bibinfo{person}{Neil~A Ernst} {and} \bibinfo{person}{Maria~Teresa Baldassarre}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Registered reports in software engineering}.
+\newblock \bibinfo{journal}{\emph{Empirical software engineering}} \bibinfo{volume}{28}, \bibinfo{number}{2} (\bibinfo{year}{2023}), \bibinfo{pages}{55}.
+\newblock
+
+
+\bibitem[Luo(2025)]%
+        {luo2025iclr}
+\bibfield{author}{\bibinfo{person}{Zhongtang Luo}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{ICLR Points: How Many ICLR Publications Is One Paper in Each Area?}
+\newblock \bibinfo{journal}{\emph{arXiv preprint arXiv:2503.16623}} (\bibinfo{year}{2025}).
+\newblock
+\urldef\tempurl%
+\url{https://arxiv.org/pdf/2503.16623}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Manrai et~al\mbox{.}(2025)]%
+        {manrai2025accelerating}
+\bibfield{author}{\bibinfo{person}{Arjun~K Manrai}, \bibinfo{person}{David Ouyang}, \bibinfo{person}{Joseph~W Hogan}, {and} \bibinfo{person}{Isaac~S Kohane}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \bibinfo{title}{Accelerating science with Human+ AI review}.
+\newblock \bibinfo{numpages}{AIe2501175}~pages.
+\newblock
+
+
+\bibitem[Menzies et~al\mbox{.}(2026)]%
+        {moot2026benchmarks}
+\bibfield{author}{\bibinfo{person}{Tim Menzies}, \bibinfo{person}{Tao Chen}, \bibinfo{person}{Yulong Ye}, \bibinfo{person}{Kishan~Kumar Ganguly}, \bibinfo{person}{Amirali Rayegan}, \bibinfo{person}{Srinath Srinivasan}, {and} \bibinfo{person}{Andre Lustosa}.} \bibinfo{year}{2026}\natexlab{}.
+\newblock \showarticletitle{{MOOT}: a Repository of Many Multi-Objective Optimization Tasks}. In \bibinfo{booktitle}{\emph{2026 IEEE/ACM 23rd International Conference on Mining Software Repositories (MSR)}}. \bibinfo{publisher}{IEEE/ACM}, \bibinfo{address}{Rio de Janeiro, Brazil}.
+\newblock
+
+
+\bibitem[Monperrus(2025)]%
+        {monperrus2025most}
+\bibfield{author}{\bibinfo{person}{Martin Monperrus}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{Most Cited Papers in Software Engineering 2013-2023}.
+\newblock  (\bibinfo{year}{2025}).
+\newblock
+\newblock
+\shownote{Available from \url{https://kth.diva-portal.org/smash/get/diva2:1953484/FULLTEXT01.pdf}}.
+
+
+\bibitem[Price(1963)]%
+        {Price1963}
+\bibfield{author}{\bibinfo{person}{Derek J. de~Solla Price}.} \bibinfo{year}{1963}\natexlab{}.
+\newblock \showarticletitle{Little Science, Big Science}.
+\newblock \bibinfo{journal}{\emph{Columbia University Press}} (\bibinfo{year}{1963}).
+\newblock
+\newblock
+\shownote{Foundation of Scientometrics, origin of Price's Square Root Law}.
+
+
+\bibitem[Ralph et~al\mbox{.}(2021)]%
+        {ralph2021empiricalstandardssoftwareengineering}
+\bibfield{author}{\bibinfo{person}{Paul Ralph}, \bibinfo{person}{Nauman bin Ali}, \bibinfo{person}{Sebastian Baltes}, \bibinfo{person}{Domenico Bianculli}, \bibinfo{person}{Jessica Diaz}, \bibinfo{person}{Yvonne Dittrich}, \bibinfo{person}{Neil Ernst}, \bibinfo{person}{Michael Felderer}, \bibinfo{person}{Robert Feldt}, \bibinfo{person}{Antonio Filieri}, \bibinfo{person}{Breno Bernard~Nicolau de França}, \bibinfo{person}{Carlo~Alberto Furia}, \bibinfo{person}{Greg Gay}, \bibinfo{person}{Nicolas Gold}, \bibinfo{person}{Daniel Graziotin}, \bibinfo{person}{Pinjia He}, \bibinfo{person}{Rashina Hoda}, \bibinfo{person}{Natalia Juristo}, \bibinfo{person}{Barbara Kitchenham}, \bibinfo{person}{Valentina Lenarduzzi}, \bibinfo{person}{Jorge Martínez}, \bibinfo{person}{Jorge Melegati}, \bibinfo{person}{Daniel Mendez}, \bibinfo{person}{Tim Menzies}, \bibinfo{person}{Jefferson Molleri}, \bibinfo{person}{Dietmar Pfahl}, \bibinfo{person}{Romain Robbes}, \bibinfo{person}{Daniel Russo}, \bibinfo{person}{Nyyti Saarimäki},
+  \bibinfo{person}{Federica Sarro}, \bibinfo{person}{Davide Taibi}, \bibinfo{person}{Janet Siegmund}, \bibinfo{person}{Diomidis Spinellis}, \bibinfo{person}{Miroslaw Staron}, \bibinfo{person}{Klaas Stol}, \bibinfo{person}{Margaret-Anne Storey}, \bibinfo{person}{Davide Taibi}, \bibinfo{person}{Damian Tamburri}, \bibinfo{person}{Marco Torchiano}, \bibinfo{person}{Christoph Treude}, \bibinfo{person}{Burak Turhan}, \bibinfo{person}{Xiaofeng Wang}, {and} \bibinfo{person}{Sira Vegas}.} \bibinfo{year}{2021}\natexlab{}.
+\newblock \bibinfo{title}{Empirical Standards for Software Engineering Research}.
+\newblock
+\showeprint[arxiv]{2010.03525}~[cs.SE]
+\urldef\tempurl%
+\url{https://arxiv.org/abs/2010.03525}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Roumbanis(2019)]%
+        {roumbanis2019lottery}
+\bibfield{author}{\bibinfo{person}{Lambros Roumbanis}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{Peer Review or Lottery? A Critical Analysis of Two Different Forms of Decision-making Mechanisms for Allocation of Research Grants}.
+\newblock \bibinfo{journal}{\emph{Science, Technology, \& Human Values}} \bibinfo{volume}{44}, \bibinfo{number}{6} (\bibinfo{year}{2019}), \bibinfo{pages}{994--1019}.
+\newblock
+
+
+\bibitem[Roychoudhury(2026)]%
+        {roychoudhury2025year}
+\bibfield{author}{\bibinfo{person}{Abhik Roychoudhury}.} \bibinfo{year}{2026}\natexlab{}.
+\newblock \showarticletitle{A Year in TOSEM: New Research Award, Agentic AI Special Issue and Much More}.
+\newblock \bibinfo{journal}{\emph{ACM Transactions on Software Engineering and Methodology}} \bibinfo{volume}{35}, \bibinfo{number}{1} (\bibinfo{year}{2026}).
+\newblock
+\urldef\tempurl%
+\url{https://dl.acm.org/doi/epdf/10.1145/3785329}
+\showURL{%
+\tempurl}
+
+
+\end{thebibliography}

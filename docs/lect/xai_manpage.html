@@ -1,0 +1,348 @@
+<!-- Creator     : groff version 1.23.0 -->
+<!-- CreationDate: Tue Feb 17 17:49:50 2026 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>XAI.PY</title>
+
+</head>
+<body>
+
+<h1 align="center">XAI.PY</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#DATA FORMAT">DATA FORMAT</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#ACTIONS">ACTIONS</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#LICENSE">LICENSE</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">xai.py &minus;
+explainable multi-objective optimization using decision
+trees</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em"><b>./xai.py</b>
+[<i>OPTIONS</i>] [<i>ACTION</i>] [<i>FILE</i>]</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em"><b>xai.py</b> is
+a lightweight, zero-dependency Python framework for
+multi-objective optimization. Unlike &quot;black box&quot;
+AI models, it focuses on interpretability by generating
+decision trees that isolate the &quot;best&quot; outcomes
+(&quot;heaven&quot;) from the rest. It uses a recursive
+partitioning algorithm (&quot;backpacking&quot; code style)
+to cluster data, maximizing the separation between
+high-scoring and low-scoring rows based on weighted
+Euclidean distance to specific goals.</p>
+
+<h2>DATA FORMAT
+<a name="DATA FORMAT"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">The input must
+be a CSV file. The first row (header) defines column roles
+using casing and suffixes: <b><br>
+[A-Z]* (Starts with Uppercase)</b></p>
+
+<p style="margin-left:18%;">Numeric columns (e.g.,
+&quot;Age&quot;, &quot;Weight&quot;).</p>
+
+<p style="margin-left:9%;"><b>[a-z]* (Starts with
+Lowercase)</b></p>
+
+<p style="margin-left:18%;">Symbolic/Categorical columns
+(e.g., &quot;job&quot;, &quot;color&quot;).</p>
+
+<p style="margin-left:9%;"><b>name+ (Ends with +)</b></p>
+
+<p style="margin-left:18%;">A numeric goal to
+<b>maximize</b> (e.g., &quot;Salary+&quot;).</p>
+
+<p style="margin-left:9%;"><b>name- (Ends with -)</b></p>
+
+<p style="margin-left:18%;">A numeric goal to
+<b>minimize</b> (e.g., &quot;Cost-&quot;).</p>
+
+<p style="margin-left:9%;"><b>nameX (Ends with X)</b></p>
+
+<p style="margin-left:18%;">A column to <b>ignore</b>
+(e.g., &quot;idX&quot;).</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="1%">
+
+
+<p><b>?</b></p></td>
+<td width="8%"></td>
+<td width="46%">
+
+
+<p>Denotes a missing value in the data.</p></td>
+<td width="36%">
+</td></tr>
+</table>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">Configuration
+flags control the internal algorithms. <b><br>
+&minus;b</b> <i>bins</i></p>
+
+<p style="margin-left:18%;">Set the number of bins for
+discretizing continuous values. Default is <b>7</b>.</p>
+
+<p style="margin-left:9%;"><b>&minus;B</b>
+<i>Budget</i></p>
+
+<p style="margin-left:18%;">Set the max number of rows to
+evaluate during optimization. Default is <b>30</b>.</p>
+
+<p style="margin-left:9%;"><b>&minus;C</b> <i>Check</i></p>
+
+<p style="margin-left:18%;">Set the number of guesses to
+check during stochastic search. Default is <b>5</b>.</p>
+
+<p style="margin-left:9%;"><b>&minus;d</b> <i>file</i></p>
+
+<p style="margin-left:18%;">Set the default data file to
+load. Default is <b>data.csv</b>.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="3%">
+
+
+<p><b>&minus;h</b></p></td>
+<td width="6%"></td>
+<td width="41%">
+
+
+<p>Print the help message and exit.</p></td>
+<td width="41%">
+</td></tr>
+</table>
+
+<p style="margin-left:9%;"><b>&minus;l</b> <i>leaf</i></p>
+
+<p style="margin-left:18%;">Set the minimum size for leaf
+nodes. The tree stops growing if a node has fewer than <i>2
+* leaf</i> rows. Default is <b>2</b>.</p>
+
+<p style="margin-left:9%;"><b>&minus;s</b> <i>seed</i></p>
+
+<p style="margin-left:18%;">Set the random number generator
+seed. Default is <b>1</b>.</p>
+
+<h2>ACTIONS
+<a name="ACTIONS"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">Action flags
+trigger specific analysis routines.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="8%">
+
+
+<p><b>&minus;&minus;all</b></p></td>
+<td width="1%"></td>
+<td width="56%">
+
+
+<p>Run all test suites and examples.</p></td>
+<td width="26%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="8%">
+
+
+<p><b>&minus;&minus;bins</b></p></td>
+<td width="1%"></td>
+<td width="56%">
+
+
+<p>Show the rankings of bins found in the data.</p></td>
+<td width="26%">
+</td></tr>
+</table>
+
+<p style="margin-left:9%;"><b>&minus;&minus;clone</b></p>
+
+<p style="margin-left:18%;">Test internal table replication
+logic.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="8%">
+
+
+<p><b>&minus;&minus;csv</b></p></td>
+<td width="1%"></td>
+<td width="63%">
+
+
+<p>Test the CSV loader; prints raw parsed rows.</p></td>
+<td width="19%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="8%">
+
+
+<p><b>&minus;&minus;data</b></p></td>
+<td width="1%"></td>
+<td width="63%">
+
+
+<p>Test column generation; prints column statistics.</p></td>
+<td width="19%">
+</td></tr>
+</table>
+
+<p style="margin-left:9%;"><b>&minus;&minus;distx</b></p>
+
+<p style="margin-left:18%;">Sort/print rows by distance to
+a specific row (independent vars).</p>
+
+<p style="margin-left:9%;"><b>&minus;&minus;disty</b></p>
+
+<p style="margin-left:18%;">Sort/print rows by distance to
+&quot;heaven&quot; (dependent goals).</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="8%">
+
+
+<p><b>&minus;&minus;num</b></p></td>
+<td width="1%"></td>
+<td width="82%">
+
+
+<p>Run unit tests for the <b>Num</b> class.</p></td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="8%">
+
+
+<p><b>&minus;&minus;sym</b></p></td>
+<td width="1%"></td>
+<td width="82%">
+
+
+<p>Run unit tests for the <b>Sym</b> class.</p></td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="8%">
+
+
+<p><b>&minus;&minus;tree</b></p></td>
+<td width="1%"></td>
+<td width="82%">
+
+
+<p>Run the decision tree optimizer once and display the
+rule hierarchy.</p></td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="8%">
+
+
+<p><b>&minus;&minus;xais</b></p></td>
+<td width="1%"></td>
+<td width="82%">
+
+
+<p>Run the optimizer 20 times and display stability
+statistics.</p> </td></tr>
+</table>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em"><b>Generate a
+decision tree for a custom dataset:</b></p>
+
+<p style="margin-left:18%;">./xai.py &minus;&minus;tree
+data/auto93.csv</p>
+
+<p style="margin-left:9%; margin-top: 1em"><b>Run stability
+analysis with a specific seed:</b></p>
+
+<p style="margin-left:18%;">./xai.py &minus;s 12345
+&minus;&minus;xais</p>
+
+<p style="margin-left:9%; margin-top: 1em"><b>Debug data
+parsing:</b></p>
+
+<p style="margin-left:18%;">./xai.py &minus;&minus;csv
+data.csv</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">Written by Tim
+Menzies (2025).</p>
+
+<h2>LICENSE
+<a name="LICENSE"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">MIT License.</p>
+<hr>
+</body>
+</html>

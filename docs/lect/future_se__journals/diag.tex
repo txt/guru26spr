@@ -1,0 +1,97 @@
+% Define standard styles for consistency
+\tikzset{
+    % Base style for the main phase boxes
+    phasebox/.style={
+        rectangle,
+        rounded corners=3pt,
+        draw=black!50,
+        thick,
+        align=left,
+        font=\sffamily\small,
+        inner sep=8pt,
+        drop shadow={opacity=0.2}
+    },
+    % Specific styles for each phase (decreasing width to imply funnel)
+    phase1/.style={phasebox, fill=blue!10, minimum width=9cm},
+    phase2/.style={phasebox, fill=orange!10, minimum width=7.5cm},
+    phase3/.style={phasebox, fill=red!10, minimum width=6cm},
+    % Style for rejection nodes
+    rejectbox/.style={
+        rectangle,
+        draw=red!80!black,
+        dashed,
+        fill=red!5,
+        rounded corners,
+        align=center,
+        font=\sffamily\footnotesize,
+        minimum width=2.5cm
+    },
+    % Arrow styles
+    mainflow/.style={-Stealth, ultra thick, draw=gray!70},
+    rejectflow/.style={-Stealth, thick, draw=red!70, dashed}
+}
+
+\begin{tikzpicture}[node distance=1.5cm and 2.5cm]
+
+% --- Nodes ---
+
+% Start
+\node (start) [font=\sffamily\large\bfseries] {Paper Submission};
+
+% Phase 1 Node
+\node (p1) [phase1, below=of start] {
+    \textbf{PHASE 1: Structural Gates (Automated)}\\
+    \textit{Binary checks for required sections.}\\
+    $\bullet$ Replication Artifacts (Links) \\
+    $\bullet$ Related Work Section \\
+    $\bullet$ Threats \& Limitations Section \\
+    $\bullet$ Structure (Results separated from Discussion)
+};
+
+% Phase 2 Node
+\node (p2) [phase2, below=of p1] {
+    \textbf{PHASE 2: Descriptive Gates (Extraction)}\\
+    \textit{Scanning for essential definitions.}\\
+    $\bullet$ Clear Goal stated \\
+    $\bullet$ Context/Data Source identified \\
+    $\bullet$ Variables \& Measures defined
+};
+
+% Phase 3 Node
+\node (p3) [phase3, below=of p2] {
+    \textbf{PHASE 3: Cognitive Review (Human Expert)}\\
+    \textit{Deep assessment of logic and validity (High Effort).}\\
+    $\bullet$ Motivation Validity \\
+    $\bullet$ Selection Strategy Justification \\
+    $\bullet$ Methodology Replicability \\
+    $\bullet$ Data Analysis Rigor \\
+    $\bullet$ Evaluation Quality
+};
+
+% End Node
+\node (end) [below=of p3, font=\sffamily\large\bfseries, color=green!40!black] {Accepted for Publication};
+
+% Rejection Nodes (placed to the right)
+\node (r1) [rejectbox, right=of p1.north east, anchor=north west] {\textbf{REJECT}\\ Immature Draft};
+\node (r2) [rejectbox, right=of p2.north east, anchor=north west] {\textbf{REJECT}\\ Missing Essentials};
+\node (r3) [rejectbox, right=of p3.north east, anchor=north west] {\textbf{REJECT}\\ Flawed Science};
+
+% --- Arrows ---
+
+% Main Flow Downward (tapering line width to enhance funnel effect)
+\draw[mainflow, line width=5pt, color=blue!20] (start) -- (p1);
+\draw[mainflow, line width=4pt, color=orange!30!blue!20] (p1) -- node[right, font=\sffamily\tiny] {Passes} (p2);
+\draw[mainflow, line width=3pt, color=red!30!orange!20] (p2) -- node[right, font=\sffamily\tiny] {Passes} (p3);
+\draw[mainflow, line width=2pt, color=green!30!red!20] (p3) -- (end);
+
+% Rejection Flows Sideways
+\draw[rejectflow] (p1.east) -- node[above, font=\sffamily\tiny, text=red] {Fails} (r1.west);
+\draw[rejectflow] (p2.east) -- node[above, font=\sffamily\tiny, text=red] {Fails} (r2.west);
+\draw[rejectflow] (p3.east) -- node[above, font=\sffamily\tiny, text=red] {Fails} (r3.west);
+
+% --- Funnel Visual Aid (Optional background shading) ---
+\begin{scope}[on background layer]
+    \fill[gray!5] (p1.north west) -- (p1.north east) -- (p3.south east) -- (p3.south west) -- cycle;
+\end{scope}
+
+\end{tikzpicture}

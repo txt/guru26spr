@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>XAI.PY</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">XAI.PY</h1>
+<p class="date">January 2026</p>
+</header>
+<h1>NAME</h1>
+<p>xai.py - explainable multi-objective optimization using decision
+trees</p>
+<h1>SYNOPSIS</h1>
+<p><strong>./xai.py</strong> [<em>OPTIONS</em>] [<em>ACTION</em>]
+[<em>FILE</em>]</p>
+<h1>DESCRIPTION</h1>
+<p><strong>xai.py</strong> is a lightweight, zero-dependency Python
+framework for multi-objective optimization. Unlike "black box" AI
+models, it focuses on interpretability by generating decision trees that
+isolate the "best" outcomes ("heaven") from the rest. It uses a
+recursive partitioning algorithm ("backpacking" code style) to cluster
+data, maximizing the separation between high-scoring and low-scoring
+rows based on weighted Euclidean distance to specific goals.</p>
+<h1>DATA FORMAT</h1>
+<p>The input must be a CSV file. The first row (header) defines column
+roles using casing and suffixes:</p>
+<dl>
+<dt><strong>[A-Z]* (Starts with Uppercase)</strong></dt>
+<dd>
+<p>Numeric columns (e.g., "Age", "Weight").</p>
+</dd>
+<dt><strong>[a-z]* (Starts with Lowercase)</strong></dt>
+<dd>
+<p>Symbolic/Categorical columns (e.g., "job", "color").</p>
+</dd>
+<dt><strong>name+ (Ends with +)</strong></dt>
+<dd>
+<p>A numeric goal to <strong>maximize</strong> (e.g., "Salary+").</p>
+</dd>
+<dt><strong>name- (Ends with -)</strong></dt>
+<dd>
+<p>A numeric goal to <strong>minimize</strong> (e.g., "Cost-").</p>
+</dd>
+<dt><strong>nameX (Ends with X)</strong></dt>
+<dd>
+<p>A column to <strong>ignore</strong> (e.g., "idX").</p>
+</dd>
+<dt><strong>?</strong></dt>
+<dd>
+<p>Denotes a missing value in the data.</p>
+</dd>
+</dl>
+<h1>OPTIONS</h1>
+<p>Configuration flags control the internal algorithms.</p>
+<dl>
+<dt><strong>-b</strong><em> bins</em></dt>
+<dd>
+<p>Set the number of bins for discretizing continuous values. Default is
+<strong>7</strong>.</p>
+</dd>
+<dt><strong>-B</strong><em> Budget</em></dt>
+<dd>
+<p>Set the max number of rows to evaluate during optimization. Default
+is <strong>30</strong>.</p>
+</dd>
+<dt><strong>-C</strong><em> Check</em></dt>
+<dd>
+<p>Set the number of guesses to check during stochastic search. Default
+is <strong>5</strong>.</p>
+</dd>
+<dt><strong>-d</strong><em> file</em></dt>
+<dd>
+<p>Set the default data file to load. Default is
+<strong>data.csv</strong>.</p>
+</dd>
+<dt><strong>-h</strong></dt>
+<dd>
+<p>Print the help message and exit.</p>
+</dd>
+<dt><strong>-l</strong><em> leaf</em></dt>
+<dd>
+<p>Set the minimum size for leaf nodes. The tree stops growing if a node
+has fewer than <em>2 * leaf</em> rows. Default is
+<strong>2</strong>.</p>
+</dd>
+<dt><strong>-s</strong><em> seed</em></dt>
+<dd>
+<p>Set the random number generator seed. Default is
+<strong>1</strong>.</p>
+</dd>
+</dl>
+<h1>ACTIONS</h1>
+<p>Action flags trigger specific analysis routines.</p>
+<dl>
+<dt><strong>--all</strong></dt>
+<dd>
+<p>Run all test suites and examples.</p>
+</dd>
+<dt><strong>--bins</strong></dt>
+<dd>
+<p>Show the rankings of bins found in the data.</p>
+</dd>
+<dt><strong>--clone</strong></dt>
+<dd>
+<p>Test internal table replication logic.</p>
+</dd>
+<dt><strong>--csv</strong></dt>
+<dd>
+<p>Test the CSV loader; prints raw parsed rows.</p>
+</dd>
+<dt><strong>--data</strong></dt>
+<dd>
+<p>Test column generation; prints column statistics.</p>
+</dd>
+<dt><strong>--distx</strong></dt>
+<dd>
+<p>Sort/print rows by distance to a specific row (independent vars).</p>
+</dd>
+<dt><strong>--disty</strong></dt>
+<dd>
+<p>Sort/print rows by distance to "heaven" (dependent goals).</p>
+</dd>
+<dt><strong>--num</strong></dt>
+<dd>
+<p>Run unit tests for the <strong>Num</strong> class.</p>
+</dd>
+<dt><strong>--sym</strong></dt>
+<dd>
+<p>Run unit tests for the <strong>Sym</strong> class.</p>
+</dd>
+<dt><strong>--tree</strong></dt>
+<dd>
+<p>Run the decision tree optimizer once and display the rule
+hierarchy.</p>
+</dd>
+<dt><strong>--xais</strong></dt>
+<dd>
+<p>Run the optimizer 20 times and display stability statistics.</p>
+</dd>
+</dl>
+<h1>EXAMPLES</h1>
+<p><strong>Generate a decision tree for a custom dataset:</strong></p>
+<blockquote>
+<p>./xai.py --tree data/auto93.csv</p>
+</blockquote>
+<p><strong>Run stability analysis with a specific seed:</strong></p>
+<blockquote>
+<p>./xai.py -s 12345 --xais</p>
+</blockquote>
+<p><strong>Debug data parsing:</strong></p>
+<blockquote>
+<p>./xai.py --csv data.csv</p>
+</blockquote>
+<h1>AUTHOR</h1>
+<p>Written by Tim Menzies (2025).</p>
+<h1>LICENSE</h1>
+<p>MIT License.</p>
+</body>
+</html>

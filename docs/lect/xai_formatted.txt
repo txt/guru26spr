@@ -1,0 +1,120 @@
+[4mXAI.PY[24m(1)                        User Commands                       [4mXAI.PY[24m(1)
+
+[1mNAME[0m
+       xai.py - explainable multi‐objective optimization using decision trees
+
+
+[1mSYNOPSIS[0m
+       [1m./xai.py [22m[[4mOPTIONS[24m] [[4mACTION[24m] [[4mFILE[24m]
+
+
+[1mDESCRIPTION[0m
+       [1mxai.py [22mis a lightweight, zero‐dependency Python framework for multi‐ob‐
+       jective  optimization.  Unlike "black box" AI models, it focuses on in‐
+       terpretability by generating decision trees  that  isolate  the  "best"
+       outcomes  ("heaven")  from  the rest.  It uses a recursive partitioning
+       algorithm ("backpacking" code style) to cluster  data,  maximizing  the
+       separation  between high‐scoring and low‐scoring rows based on weighted
+       Euclidean distance to specific goals.
+
+
+[1mDATA FORMAT[0m
+       The input must be a CSV file. The first  row  (header)  defines  column
+       roles using casing and suffixes:
+
+       [1m[A‐Z]* (Starts with Uppercase)[0m
+              Numeric columns (e.g., "Age", "Weight").
+
+       [1m[a‐z]* (Starts with Lowercase)[0m
+              Symbolic/Categorical columns (e.g., "job", "color").
+
+       [1mname+ (Ends with +)[0m
+              A numeric goal to [1mmaximize [22m(e.g., "Salary+").
+
+       [1mname‐ (Ends with ‐)[0m
+              A numeric goal to [1mminimize [22m(e.g., "Cost‐").
+
+       [1mnameX (Ends with X)[0m
+              A column to [1mignore [22m(e.g., "idX").
+
+       [1m?      [22mDenotes a missing value in the data.
+
+
+[1mOPTIONS[0m
+       Configuration flags control the internal algorithms.
+
+       [1m-b [4m[22mbins[0m
+              Set  the number of bins for discretizing continuous values.  De‐
+              fault is [1m7[22m.
+
+       [1m-B [4m[22mBudget[0m
+              Set the max number of rows to evaluate during optimization.  De‐
+              fault is [1m30[22m.
+
+       [1m-C [4m[22mCheck[0m
+              Set the number of guesses to check during stochastic search. De‐
+              fault is [1m5[22m.
+
+       [1m-d [4m[22mfile[0m
+              Set the default data file to load. Default is [1mdata.csv[22m.
+
+       [1m-h     [22mPrint the help message and exit.
+
+       [1m-l [4m[22mleaf[0m
+              Set  the minimum size for leaf nodes.  The tree stops growing if
+              a node has fewer than [4m2[24m [4m*[24m [4mleaf[24m rows. Default is [1m2[22m.
+
+       [1m-s [4m[22mseed[0m
+              Set the random number generator seed. Default is [1m1[22m.
+
+
+[1mACTIONS[0m
+       Action flags trigger specific analysis routines.
+
+       [1m--all  [22mRun all test suites and examples.
+
+       [1m--bins [22mShow the rankings of bins found in the data.
+
+       [1m--clone[0m
+              Test internal table replication logic.
+
+       [1m--csv  [22mTest the CSV loader; prints raw parsed rows.
+
+       [1m--data [22mTest column generation; prints column statistics.
+
+       [1m--distx[0m
+              Sort/print rows by  distance  to  a  specific  row  (independent
+              vars).
+
+       [1m--disty[0m
+              Sort/print rows by distance to "heaven" (dependent goals).
+
+       [1m--num  [22mRun unit tests for the [1mNum [22mclass.
+
+       [1m--sym  [22mRun unit tests for the [1mSym [22mclass.
+
+       [1m--tree [22mRun  the decision tree optimizer once and display the rule hier‐
+              archy.
+
+       [1m--xais [22mRun the optimizer 20 times and display stability statistics.
+
+
+[1mEXAMPLES[0m
+       [1mGenerate a decision tree for a custom dataset:[0m
+                ./xai.py --tree data/auto93.csv
+
+       [1mRun stability analysis with a specific seed:[0m
+                ./xai.py -s 12345 --xais
+
+       [1mDebug data parsing:[0m
+                ./xai.py --csv data.csv
+
+
+[1mAUTHOR[0m
+       Written by Tim Menzies (2025).
+
+
+[1mLICENSE[0m
+       MIT License.
+
+Version 1.0                      January 2026                        [4mXAI.PY[24m(1)
