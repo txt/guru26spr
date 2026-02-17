@@ -16,8 +16,8 @@
 
 # Roll your own IDE
 
-Handl in stapled sheets showing your code and and input outpits. For large
-data files, jsut show first 4 lines.
+Hand in stapled sheets showing your code and input/outputs. For large
+data files, just show first 4 lines.
 
 For support files, go to https://github.com/txt/guru26spr/tree/main/docs/submit/three
 
@@ -26,7 +26,7 @@ For support files, go to https://github.com/txt/guru26spr/tree/main/docs/submit/
 
 1. Your `Makefile`
 2. Your `.awk` scripts (S1–S5)
-3. Your `checks.py` (next time , not now)
+3. Your `checks.py`
 4. All output files (`out/S1`–`out/S5`, `out/A`–`out/M`)
 5. A short `REPORT.md` (≤ 1 page) summarizing what you found
 
@@ -44,9 +44,9 @@ Grad students
 make sh
 🔆 parent/dir main* ▶
 ```
-Note that parent/dir will show your dir and aprent dir names.
+Note that parent/dir will show your dir and parent dir names.
 
-Also, for windows users, tput may not run. Is so then isnide `etc/ell`
+Also, for windows users, tput may not run. If so then inside `etc/ell`
 change lines with tput to...
 
 ```
@@ -70,7 +70,7 @@ make sh
 🔆 parent/dir main* ▶
 ```
 
-## 3. Add make rules to  show date, list files. Add them to the Makefile hep system:
+## 3. Add make rules to  show date, list files. Add them to the Makefile help system:
 
 ```
 🔆 parent/dir main* ▶ make
@@ -114,9 +114,7 @@ Modify the rule so that `"echo 'p {text-align: right}"` is always appended to ~/
 
 ## 5. Data Quality  (Big Task)
 
-For HW3, implement S1...S5 (the gawk stuff) this time and A--M (the python stuff)
-will be required for
-HW4. 
+For HW3, implement S1...S5 (the gawk stuff) and A--M (the python stuff).
 
 
 **Background**
@@ -185,19 +183,65 @@ cross-column formulas. Each should be ≤ 5 lines of gawk.
 | **S4** | **Bad class labels** — rows where `class!` does not match `/^[1-5]$/` |
 | **S5** | **Duplicate rows** — rows appearing more than once (count every copy) |
 
-### Part 2: Python checks (domain knowledge required)
+### Part 2: Python checks (domain knowledge & statistics)
 
-These need the referential integrity constraints and plausibility rules.
-They involve floating-point tolerances, cross-column formulas, and
-set-union aggregation.
+These checks require floating-point math, statistics, and cross-column
+reasoning that goes beyond what gawk does well.
+
+**Important**: no external packages! Use only `csv`, `sys`, `math`.
+Computing mean, standard deviation, and correlation from scratch is part
+of the exercise.
+
+#### Mini Python tutorials
+
+Before you start, here are the building blocks you'll need. Each is just
+a few lines of plain Python — no imports beyond `math.sqrt`.
+
+**Mean** — the average value of a list:
+
+```python
+def mean(xs):
+    return sum(xs) / len(xs)
+```
+
+**Standard deviation** — how spread out the values are.  We use the
+*population* formula (divide by n, not n−1) since we're describing
+this dataset, not estimating a population parameter:
+
+```python
+from math import sqrt
+
+def sd(xs):
+    mu = mean(xs)
+    return sqrt(sum((x - mu)**2 for x in xs) / len(xs))
+```
+
+**Pearson correlation** — measures how linearly related two columns are.
+Returns a value between −1 and +1.  When |r| is close to 1 the columns
+move in lockstep; when it's 0 they're unrelated:
+
+```python
+def pearson(xs, ys):
+    mx, my = mean(xs), mean(ys)
+    num = sum((x - mx) * (y - my) for x, y in zip(xs, ys))
+    dx  = sum((x - mx)**2 for x in xs)
+    dy  = sum((y - my)**2 for y in ys)
+    if dx == 0 or dy == 0:
+        return 0
+    return num / sqrt(dx * dy)
+```
+
+These three functions are all you need for checks B, C, G, and I below.
+
+---
 
 #### Feature-level (report column names)
 
 | Target | What to count |
 |--------|--------------|
 | **A** | **Identical features** — columns with the same values for every row. Report all columns in each identical group. |
-| **B** | **Constant features** — same as S3 (reuse the result) |
-| **C** | **Features with missing values** — same as S2 column list (reuse) |
+| **B** | **Correlated features** — pairs of numeric features with Pearson \|r\| > 0.95. Report both column names in each pair. |
+| **C** | **Outlier features** — columns that contain at least one value more than 3 standard deviations from the column mean (μ ± 3σ). |
 | **D** | **Features with conflicting values** — columns involved in ≥1 violated referential integrity constraint |
 | **E** | **Features with implausible values** — columns with ≥1 value violating a plausibility constraint |
 | **F** | **Total problem features** — distinct columns hit by any of A–E. Note: F ≤ A+B+C+D+E since a column can have multiple problems. |
@@ -206,16 +250,16 @@ set-union aggregation.
 
 | Target | What to count |
 |--------|--------------|
-| **G** | **Identical cases** — same as S5 (reuse) |
+| **G** | **Outlier cases** — rows containing at least one value more than 3σ from the column mean. (The row-level dual of check C.) |
 | **H** | **Inconsistent cases** — rows identical on all features but with a different `class!` |
-| **I** | **Cases with missing values** — same as S2 row list (reuse) |
+| **I** | **Class-conditional outlier cases** — *within each class*, rows containing at least one value more than 3σ from the *class-specific* mean. A row can look normal globally but be a freak for its class. |
 | **J** | **Cases with conflicting values** — rows violating ≥1 referential integrity constraint (skip rows with `?` in involved fields) |
 | **K** | **Cases with implausible values** — rows with ≥1 plausibility violation |
-| **L** | **Total data-quality problem cases** — distinct rows hit by any of I–K. Note: L ≤ I+J+K. |
-| **M** | **Total problem cases** — distinct rows hit by any of G–K. Note: M ≤ G+H+I+J+K. |
+| **L** | **Total data-quality problem cases** — distinct rows hit by any of G–K. |
+| **M** | **Total problem cases** — same as L here (since all case checks are G–K). Kept for symmetry with F. |
 
-Note that B=S3, C=S2(columns), G=S5, I=S2(rows). Your Makefile should
-reuse the gawk outputs rather than recompute them.
+Every Python target in Part 2 is distinct from every gawk target in
+Part 1.  There is no overlap and no reuse between the two parts.
 
 ---
 
@@ -235,21 +279,21 @@ out/S3: $(DATA); mkdir -p out; gawk -f S3.awk $< > $@
 out/S4: $(DATA); mkdir -p out; gawk -f S4.awk $< > $@
 out/S5: $(DATA); mkdir -p out; gawk -f S5.awk $< > $@
 
-# ── Part 2: python ───────────────────────────────
+# ── Part 2: python ────────────────────────────────
 out/A: $(DATA);         mkdir -p out; python3 checks.py A $< > $@
-out/B: out/S3;          cp $< $@
-out/C: out/S2;          grep '^COL:' $< | sed 's/^COL://' > $@
+out/B: $(DATA);         mkdir -p out; python3 checks.py B $< > $@
+out/C: $(DATA);         mkdir -p out; python3 checks.py C $< > $@
 out/D: $(DATA);         mkdir -p out; python3 checks.py D $< > $@
 out/E: $(DATA);         mkdir -p out; python3 checks.py E $< > $@
 out/F: out/A out/B out/C out/D out/E
 	tail -n+2 $^ | grep -vE '^$$|^==>' | sort -u > $@
 
-out/G: out/S5;          cp $< $@
+out/G: $(DATA);         mkdir -p out; python3 checks.py G $< > $@
 out/H: $(DATA);         mkdir -p out; python3 checks.py H $< > $@
-out/I: out/S2;          grep '^ROW:' $< | sed 's/^ROW://' > $@
+out/I: $(DATA);         mkdir -p out; python3 checks.py I $< > $@
 out/J: $(DATA);         mkdir -p out; python3 checks.py J $< > $@
 out/K: $(DATA);         mkdir -p out; python3 checks.py K $< > $@
-out/L: out/I out/J out/K
+out/L: out/G out/H out/I out/J out/K
 	tail -n+2 $^ | grep -vE '^$$|^==>' | sort -un > $@
 out/M: out/G out/H out/I out/J out/K
 	tail -n+2 $^ | grep -vE '^$$|^==>' | sort -un > $@
@@ -296,7 +340,7 @@ $ head out/S4
 A row has conflicting values when a derived feature disagrees with its
 formula. We check four constraints, each with its own tolerance. Rows
 containing `?` in any relevant field are skipped (missing-ness is handled
-by check I, not here).
+by check S2, not here).
 
 **checks.py** (just the J function — your full script will dispatch on `sys.argv[1]`):
 
@@ -344,5 +388,3 @@ Key decisions visible in the code:
   row numbers across targets.
 - **Guard clauses**: `h > 0` and `a > 0` prevent division by zero.
   Rows with negative heights are caught by check K, not here.
-
- 
