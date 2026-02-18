@@ -321,7 +321,7 @@ pandoc xai.1 -s -f man -o xai_modern.pdf
 
 ---
 
-5. SCALING UP (1):  PANDOC
+## 5. SCALING UP (1):  PANDOC
 
 For this example, we'll need "tectonic"
 
