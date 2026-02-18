@@ -1,18 +1,38 @@
-<p align="center">
-  <a href="https://github.com/txt/guru26spr/blob/main/README.md"><img 
-     src="https://img.shields.io/badge/Home-%23ff5733?style=flat-square&logo=home&logoColor=white" /></a>
-  <a href="https://github.com/txt/guru26spr/blob/main/docs/lect/syllabus.md"><img 
-      src="https://img.shields.io/badge/Syllabus-%230055ff?style=flat-square&logo=openai&logoColor=white" /></a>
-  <a href="https://docs.google.com/spreadsheets/d/1xZfIwkmu6hTJjXico1zIzklt1Tl9-L9j9uHrix9KToU/edit?usp=sharing"><img
-      src="https://img.shields.io/badge/Teams-%23ffd700?style=flat-square&logo=users&logoColor=white" /></a>
-  <a href="https://moodle-courses2527.wolfware.ncsu.edu/course/view.php?id=8119"><img 
-      src="https://img.shields.io/badge/Moodle-%23dc143c?style=flat-square&logo=moodle&logoColor=white" /></a>
-  <a href="https://discord.gg/vCCXMfzQ"><img 
-      src="https://img.shields.io/badge/Chat-%23008080?style=flat-square&logo=discord&logoColor=white" /></a>
-  <a href="https://github.com/txt/guru26spr/blob/main/LICENSE.md"><img 
-      src="https://img.shields.io/badge/©%20timm%202026-%234b4b4b?style=flat-square&logoColor=white" /></a></p>
-<h1 align="center">:cyclone: CSC491/591: How to be a SE Guru <br>NC State, Spring '26</h1>
-<img src="https://raw.githubusercontent.com/txt/guru26spr/refs/heads/main/etc/img/banenr.png"> 
+---
+title: |
+   Industry can get any empirical\
+   research it wants
+subtitle: (Publish open source data, and some example scripts.)
+author: Tim Menzies
+institute: |
+  prof, cs, \textcolor{myred}{{\bf ncstate}}, usa\
+  acm-ieee-ase fellow; eic ASEj\
+  timm@ieee.org\
+  http://timm.fyi
+date: Oct3'25
+slide-level: 2
+fontsize: 9pt
+theme: Warsaw
+colortheme: default
+header-includes:
+  - \titlegraphic{\vspace{-5mm}\includegraphics[height=3cm]{logo.png}}
+  - \usepackage[sfdefault,light]{FiraSans}
+  - \usepackage{microtype}
+  - \definecolor{LogicBlue}{RGB}{204,0,0}
+  - \definecolor{InferenceRed}{RGB}{212,55,59}
+  - \definecolor{linkblue}{HTML}{0066FF}
+  - \definecolor{myred}{HTML}{CC0000}
+  - \setbeamercolor{structure}{fg=InferenceRed}
+  - \setbeamercolor{frametitle}{bg=LogicBlue,fg=white}
+  - \setbeamercolor{palette primary}{bg=LogicBlue,fg=white}
+  - \setbeamercolor{palette secondary}{bg=InferenceRed,fg=white}
+  - \setbeamertemplate{navigation symbols}{}
+  - \hypersetup{colorlinks=true,urlcolor=linkblue}
+  - \setbeamertemplate{footline}{\hspace{1em}\textcolor{linkblue}{\href{https://timm.fyi/esem25.pdf}{URL= timm.fyi/esem25.pdf}}\hfill\insertframenumber/\inserttotalframenumber\hspace{1em}\vspace{0.5em}}
+  - \setbeamercolor{block title}{bg=myred!20, fg=myred!80!black}
+  - \setbeamercolor{block body}{bg=myred!5, fg=black}
+  - \setbeamercolor{background canvas}{bg=gray!2}
+---
 
 ## From Open Source Data to Open Source Science
 
