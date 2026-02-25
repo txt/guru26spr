@@ -23,6 +23,12 @@ Think OS paging: RAM is tiny, disk is huge, so the OS **pages in** just the work
 set. RAG does the same: the LLM’s context is tiny, your PDF corpus is huge, so we
 **page in** only the most relevant text chunks.
 
+## You will need these files
+
+- [docs_link.txt](docs_link.txt)
+- [install.md](install.md)
+- [rag.py](rag.py)
+
 ## Background Theory  
 
 **Virtual memory & paging.** The OS keeps only the "working set" in RAM,
