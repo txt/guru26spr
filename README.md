@@ -69,14 +69,14 @@ work remains accessible to future generations.
 | Feb 11 | |[2b](https://github.com/txt/guru26spr/blob/main/docs/submit/two/hw2b.md) | [w4](docs/review/w4.md) |
 | Feb 18 | [Doco](docs/lect/doc.md) | [3a](docs/submit/three/hw3.md) | [w5](docs/review/w5.md)  |
 | Feb 25 | [DSL](docs/lect/dsl.md)  <br> [Rag](docs/lect/RAG/lec_rag.md)  |3b | |
-| Mar 04 | |[4a](docs/submit/four/todo.md) | |
-| Mar 11 | |4b | |
+| Mar 04 | | | |
+| Mar 11| |[4a](docs/submit/four/todo.md) | | 
 | Mar 18 | Spring Break (no class) | | |
-| Mar 25 | |5a | |
-| Apr 01 | |5b | |
-| Apr 08 | |6a | |
-| Apr 15 | |6b | |
-| Apr 22 | |   | |
+| Mar 25 | |4b | |
+| Apr 01 | |5a | |
+| Apr 08 | |5b | |
+| Apr 15 | |6a | |
+| Apr 22 | | 6b   | |
 | Apr 29 |no class (reading day) | | |
 | May 01 | exam | | |
 </div>
