@@ -68,7 +68,7 @@ work remains accessible to future generations.
 | Feb 04 | [js,types](docs/lect/types.md) <br>[shell,make](docs/lect/w4shmake.md)  |[2a](docs/submit/two/hw2.md) | |
 | Feb 11 | |[2b](https://github.com/txt/guru26spr/blob/main/docs/submit/two/hw2b.md) | [w4](docs/review/w4.md) |
 | Feb 18 | [Doco](docs/lect/doc.md) | [3a](docs/submit/three/hw3.md) | [w5](docs/review/w5.md)  |
-| Feb 25 | [DSL](docs/lect/dsl.md)  <br> [Rag](docs/lect/RAG/lec_rag.md)  |3b | |
+| Feb 25 | [DSL](docs/lect/dsl.md)  <br> [Rag](docs/lect/RAG/lec_rag.md)  |3b | [w6](docs/review/w6.md)  |
 | Mar 04 | | | |
 | Mar 11| |[4a](docs/submit/four/todo.md) | | 
 | Mar 18 | Spring Break (no class) | | |
