@@ -17,6 +17,21 @@
 
 # Smalltalk Mini-Tutorial
 
+Smalltalk. Cannout overstate its influence on computing.
+
+"The best way to predict the future is to invent it"     
+-- Alan Kay, 1971
+
+<img width="730" height="633" alt="image" src="https://github.com/user-attachments/assets/b807a21c-20a5-4472-98e3-4691fe2e14a3" />
+
+<img width="435" height="445" alt="image" src="https://github.com/user-attachments/assets/14ba82b5-e173-4011-874c-1d4d3049d611" />
+
+
+<img width="427" height="663" alt="image" src="https://github.com/user-attachments/assets/72f0f7ea-5b1b-42a7-9aff-e902c521f64f" />
+
+Kay, Alan C. "Microelectronics and the personal computer." Scientific American 237.3 (1977): 230-245.
+
+
 In Smalltalk, we do not start by writing functions.
 We start by sending messages.
 
@@ -486,7 +501,7 @@ It grows naturally from:
 
 ---
 
-## 14. What to emphasize to newbies
+## 14. Main Points
 
 If the audience is new, the key message is:
 
