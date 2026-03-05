@@ -73,7 +73,7 @@ work remains accessible to future generations.
 | Mar 11| |[4a](docs/submit/four/todo.md) | | 
 | Mar 18 | Spring Break (no class) | | |
 | Mar 25 | |4b | |
-| Apr 01 | |5a | |
+| Apr 01 | |5a<br> [ST tutorial](docs/lects/st101.md)<br>[ST cheatsheet](docs/lects/learn.st) | |
 | Apr 08 | |5b | |
 | Apr 15 | |6a | |
 | Apr 22 | | 6b   | |
