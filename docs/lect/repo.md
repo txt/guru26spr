@@ -17,10 +17,12 @@
 
 
 # Lecture: Architecture of an Open-Source Software Repository
-**Course:** Graduate Software Engineering (SE)
-**Duration:** 1 Hour
 
----
+For a real-world example of the following, see
+
+- Simple example of some of the following: [Lime](https://github.com/marcotcr/lime);
+- More complete example: [RouteDash](https://github.com/Ishaan1402/CSC510_G20).
+
 
 ## Summary & Glossary of Key Terms
 
@@ -48,7 +50,7 @@ and Automation/Community. We will analyze real-world application using the
 
 ---
 
-## Pillar 1: Discoverability & Identity (10 mins)
+## Pillar 1: Discoverability & Identity 
 *(Covers: Software Overview, Identity, Availability, Licensing)*
 
 ### What is it?
@@ -73,7 +75,7 @@ prerequisites for software sharing.
 
 ---
 
-## Pillar 2: Documentation & Support (15 mins)
+## Pillar 2: Documentation & Support 
 *(Covers: Documentation, Support, Accessibility, Future Plans)*
 
 ### What is it?
@@ -98,7 +100,7 @@ secure for future investment.
 
 ---
 
-## Pillar 3: The Engine Room - Architecture & Build (15 mins)
+## Pillar 3: The Engine Room - Architecture & Build
 *(Covers: Maintainability, Open Standards, Portability, Building)*
 
 ### What is it?
@@ -122,7 +124,7 @@ conflicts. Portability ensures the code runs on Mac, Linux, or Windows.
 
 ---
 
-## Pillar 4: The Safety Net - SCM, CI/CD & Community (20 mins)
+## Pillar 4: The Safety Net - SCM, CI/CD & Community 
 *(Covers: Source Code Management, Testing, Community, Contributions)*
 
 ### What is it?
