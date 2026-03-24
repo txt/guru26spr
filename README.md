@@ -72,7 +72,7 @@ work remains accessible to future generations.
 | Mar 04 | | | |
 | Mar 11| |[4a](docs/submit/four/todo.md) | | 
 | Mar 18 | Spring Break (no class) | | |
-| Mar 25 | |4b | |
+| Mar 25 |[package](docs/lect/package.md) |4b | |
 | Apr 01 | |5a | |
 | Apr 08 | |5b | |
 | Apr 15 | |6a | |
