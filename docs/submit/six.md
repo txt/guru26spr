@@ -21,7 +21,11 @@ Submit a stranscrtipy cat "cats" your source code, runs the test from part 1.,
 
 Submit screen snaps of:
 
-- A github actions page of your 
+3. A github actions page of your test actions page; something like this:
+
+ <img width="720" height="504" alt="image" src="https://github.com/user-attachments/assets/4e5b23f2-3e91-4c1d-b108-fd1b26ce5612" />
+ 
+
 ## hello
 
 Write one python file hello.py that returns "hello X" where X is a parameter passed in.
