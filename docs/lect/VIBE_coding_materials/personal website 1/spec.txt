@@ -1,0 +1,25 @@
+Goal: Building a personal academic website based on a resume and other resources
+Constraints:
+    - Single page static website
+    - No special framework , as simple as possible
+    - mobile responsive
+    - loads fast (maybe <1s)
+    - include links to CV, scholar account, linkdin, etc. 
+style: minimal, professional, creative
+Not needed: Blog, chatbot, too much animation, button for switching language
+
+
+--------
+
+Based on the attached resume, build me a single-file personal academic website for a CS grad student
+Structure: Include following pages in teh website: hero, about me, projects, contacts, papers.
+Constraints:
+    - Single page static website
+    - No special framework , as simple as possible
+    - mobile responsive
+    - loads fast (maybe <1s)
+    - include links to CV, scholar account, linkdin, etc. 
+style: minimal, professional, creative. Use red/white NCSU color pallete.
+Not needed: Blog, chatbot, too much animation, button for switching language
+
+Return the complete HTML shell with placeholder texts like ([NAME], [BIO], ...)

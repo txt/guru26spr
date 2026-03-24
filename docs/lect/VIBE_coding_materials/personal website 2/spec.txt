@@ -1,0 +1,38 @@
+Goal: Building a personal academic website based on the resume.
+Constraint:
+    - Single page website
+    - no special framework, as simple as possible
+    - should mobile responsive
+    - loads fast (maybe <1s)
+    - include links to important sources (CV, scholar profile, linkdin, etc.)
+Style: minimal, creative, professional
+Not needed: Blog, chatbot, too much animations, dark mode or language toggle
+
+
+based on the attached resume, build a single-file personal academic website for a CS grad student.
+
+Structure: include following sections. hero, about, projects (3 cards), publications, contact.
+Constraint:
+    - Single page website
+    - no special framework, as simple as possible
+    - should mobile responsive
+    - loads fast (maybe <1s)
+    - include links to important sources (CV, scholar profile, linkdin, etc.)
+Style: minimal, creative, professional — think faculty page meets
+modern portfolio. Muted navy/white palette with one accent color.
+Not needed: Blog, chatbot, too much animations, dark mode or language toggle
+
+Return the complete HTML shell with placeholder text 
+(e.g. [NAME], [BIO], [PROJECT_1_TITLE]). No real content yet.
+
+
+
+
+
+great, now based on the attachments fill out the placeholders, replace links, and add the headshot photo. Use the following info as well:
+Name: Leila Ahmadi
+Tagline: "Building tools that make software engineering more 
+honest — about complexity, about quality, and about who 
+actually wrote the code."
+Location: Raleigh, NC | lahmadi@ncsu.edu | github.com/leila-ahmadi
+Do not change any CSS or structure. Only replace placeholder text.
