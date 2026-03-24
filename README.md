@@ -72,7 +72,7 @@ work remains accessible to future generations.
 | Mar 04 | [smallDSL](docs/lect/st.md)<br> [Logic](docs/lect/prolog.md)<br> [Functional](https://norvig.com/lispy.html)  | | [w7](docs/review/w7.md) |
 | Mar 11 | [Vibe Coding](docs/lect/vibe.md) <br> [Additional Materials](docs/lect/VIBE_coding_materials)|[4a](docs/submit/four/todo.md) | [w8](docs/review/w8.md) | 
 | Mar 18 | Spring Break (no class) | | |
-| Mar 25 | [packages](docs/lect/package.md) | | |
+| Mar 25 | [packages](docs/lect/package.md)<br>[repo](docs/lect/repo.md)  | | |
 | Apr 01 | |4b <br> [ST tutorial](docs/lect/st101.md)<br>[ST cheatsheet](docs/lect/learn.st) | |
 | Apr 08 | |[5a](docs/submit/five/five.md) | |
 | Apr 15 | |5b | |
