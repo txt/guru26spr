@@ -17,7 +17,10 @@
 
 # Howmework: the world's gerates hellow world function
 
-Submit the rul genrated as follows. Ensure your "Actions" includes a run of the tests and your have a index.htnl file at /docs.
+Submit the url of the public  Github  genrated as follows.
+- Ensure your "Actions" includes a run of the tests and your have a index.htnl file at /docs.
+
+Submit the url of your test.pypi.org package uploaded to the internet (see last step).
 
 ## Hello
 
