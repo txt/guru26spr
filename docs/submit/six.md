@@ -1,4 +1,4 @@
-<p align="center">
+<p  align="center">
   <a href="https://github.com/txt/guru26spr/blob/main/README.md"><img 
      src="https://img.shields.io/badge/Home-%23ff5733?style=flat-square&logo=home&logoColor=white" /></a>
   <a href="https://github.com/txt/guru26spr/blob/main/docs/lect/syllabus.md"><img 
@@ -15,7 +15,7 @@
 <img src="https://raw.githubusercontent.com/txt/guru26spr/refs/heads/main/etc/img/banenr.png"> 
 
 
-# Howmework: the world's gerates hellow world function
+# Homework: the world's greatest hello world function
 
 Submit the url of the public  Github  genrated as follows.
 - Ensure your "Actions" includes a run of the tests and your have a index.htnl file at /docs.
