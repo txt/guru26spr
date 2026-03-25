@@ -76,7 +76,7 @@ work remains accessible to future generations.
 | Apr 01 | |[4b](https://github.com/txt/guru26spr/blob/main/docs/submit/four/hw4b.md) <br> [ST tutorial](docs/lect/st101.md)<br>[ST cheatsheet](docs/lect/learn.st) | |
 | Apr 08 | |[5a](docs/submit/five/five.md) | |
 | Apr 15 | |5b | |
-| Apr 22 | | 6a   | |
+| Apr 22 | | [6a](docs/submit/six.md)   | |
 | Apr 29 |no class (reading day) | | |
 | May 01 | exam | | |
 </div>
