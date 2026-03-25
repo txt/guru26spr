@@ -17,16 +17,9 @@
 
 # Howmework: the world's gerates hellow world function
 
-Submit a stranscrtipy cat "cats" your source code, runs the test from part 1., 
+Submit the rul genrated as follows. Ensure your "Actions" includes a run of the tests and your have a index.htnl file at /docs.
 
-Submit screen snaps of:
-
-3. A github actions page of your test actions page; something like this:
-
- <img width="720" height="504" alt="image" src="https://github.com/user-attachments/assets/4e5b23f2-3e91-4c1d-b108-fd1b26ce5612" />
- 
-
-## hello
+## Hello
 
 Write one python file hello.py that returns "hello X" where X is a parameter passed in.
 
@@ -36,54 +29,64 @@ To those files, add doc strings to each fucntion and a doc string to start of fi
 
 Run that code with pytest (hint: pip install pytest; pytest test.py).
 
-Document that code with some python 2 html generator (something simple like pycco or [pdoc](https://pdoc.dev/), not something more complex
+Document that code with some python to html generator (something simple like pycco or [pdoc](https://pdoc.dev/), not something more complex
 like mkdocs). Send the output of that code to a sub-directory called `docs` and a file called `docs/index.html`.
 To that subdirectory add a file with no content called
 `.nojeykll`.
 
 ## Agile Dev Ops
 
-Create a Github repo. Go to the settings page, find "pages" git and set "Branch" to Main" and the folder to "docs": 
+### Auto doc your code
 
-Create a Github workflow that runs those tests as a side-effect of committing your code. There are many ways to do this
-by the following might be useful (consult the web for other ideas). Make file a
-.github/workflows/python-test.yml with contents:
+Create a Github repo. Go to the settings page, find "pages" git and set "Branch" to Main" and the folder to "docs". Like this:
+
+<img width="1160" height="572" alt="image" src="https://github.com/user-attachments/assets/5c7afc85-8b85-40b7-ad68-ecf6dcbd5112" />
+
+Greate a Github workflow to auto run your docunentation tools and send the output to docs, then rename that file docs/index.html. You will need a 
+yaml file something this .
 
 ```yaml
-name: Python application CI
-
+## .github/workflows/docs.yml
+name: Docs
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+    branches: [main]
 jobs:
-  build:
+  docs:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.10", "3.11", "3.12"]
-
     steps:
-      - uses: [actions/checkout@v4](https://github.com)
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: [actions/setup-python@v5](https://github.com)
+      - uses: actions/checkout@v4
+      - run: pip install pycco && pycco -d docs src/hello.py && mv docs/hello.html docs/index.html
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          python-version: ${{ matrix.python-version }}
-          cache: 'pip'
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pytest
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Run tests with pytest
-        run: |
-          pytest
+          commit_message: regen docs
 ```
 
-Greate a Github workflow to auto run your docunentation tools and send the output to docs, then rename that file docs/index.html
 
+## Auto test your code
+
+Create a Github workflow that runs those tests as a side-effect of committing your code. There are many ways to do this
+by the following might be useful (consult the web for other ideas).  
+
+```yaml
+## .github/workflows/tests.yml
+name: CI
+on:
+  push:
+    branches: [main]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest && pytest
+```
+
+
+## Make your repo good
 Make your repo "good", Add the follwing files, at least 50 lines each. For examples of good content, see [here](https://github.com/github-samples/copilot-hack/tree/main)
 
 - README.md: The front page of your repository. It includes the project description, installation instructions, and usage examples
@@ -98,12 +101,16 @@ see Essential Files for a Professional GitHub Repository on Medium.
 - docs/: Dedicated folder for detailed project documentation see Creating a default community health file on GitHub Docs. 
 - tests/: Your test code, will calls your src/hello.py files.
 
-Write a python package
+## Write a python package
 
 - Write a pyproject.toml file that enables local install (using `python3 -m pip install -e .`)
 - Change directories far away from your code and show you can run your code.
+- Get an account at 
 
-
-W
+pip install twine build
+python -m build
+twine upload --repository testpypi dist/*
+Check it worked:
+bashpip install --index-url https://test.pypi.org/simple/ your-package-name
 
 
