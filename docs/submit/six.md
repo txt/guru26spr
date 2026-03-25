@@ -17,16 +17,15 @@
 
 # Howmework: the world's gerates hellow world function
 
-Submit a stranscrtipy cat "cats" your source code, runs the test from part 1., 
+Submit the url of the public  Github  genrated as follows.
+- Ensure your "Actions" includes a run of the tests and your have a index.htnl file at /docs.
 
-Submit screen snaps of:
+Submit the url of your test.pypi.org package uploaded to the internet (see last step).
 
-3. A github actions page of your test actions page; something like this:
+Note that the following instructions are incomplete. Using package managers and GH workflows has so many nuances. When
+you get into trouble, ask Gemini or Claude.
 
- <img width="720" height="504" alt="image" src="https://github.com/user-attachments/assets/4e5b23f2-3e91-4c1d-b108-fd1b26ce5612" />
- 
-
-## hello
+## Hello
 
 Write one python file hello.py that returns "hello X" where X is a parameter passed in.
 
@@ -46,47 +45,57 @@ like mkdocs).
 
 ## Agile Dev Ops
 
-Create a Github repo. Go to the settings page, find "pages" git and set "Branch" to Main" and the folder to "docs": 
+### Auto doc your code
 
-Create a Github workflow that runs those tests as a side-effect of committing your code. There are many ways to do this
-by the following might be useful (consult the web for other ideas). Make file a
-.github/workflows/python-test.yml with contents:
+Create a Github repo. Go to the settings page, find "pages" git and set "Branch" to Main" and the folder to "docs". Like this:
+
+<img width="1160" height="572" alt="image" src="https://github.com/user-attachments/assets/5c7afc85-8b85-40b7-ad68-ecf6dcbd5112" />
+
+Greate a Github workflow to auto run your docunentation tools and send the output to docs, then rename that file docs/index.html. You will need a 
+yaml file something this .
 
 ```yaml
-name: Python application CI
-
+## .github/workflows/docs.yml
+name: Docs
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+    branches: [main]
 jobs:
-  build:
+  docs:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.10", "3.11", "3.12"]
-
     steps:
-      - uses: [actions/checkout@v4](https://github.com)
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: [actions/setup-python@v5](https://github.com)
+      - uses: actions/checkout@v4
+      - run: pip install pycco && pycco -d docs src/hello.py && mv docs/hello.html docs/index.html
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          python-version: ${{ matrix.python-version }}
-          cache: 'pip'
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pytest
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Run tests with pytest
-        run: |
-          pytest
+          commit_message: regen docs
 ```
 
-Greate a Github workflow to auto run your docunentation tools and send the output to docs, then rename that file docs/index.html
 
+## Auto test your code
+
+Create a Github workflow that runs those tests as a side-effect of committing your code. There are many ways to do this
+by the following might be useful (consult the web for other ideas).  
+
+```yaml
+## .github/workflows/tests.yml
+name: CI
+on:
+  push:
+    branches: [main]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest && pytest
+```
+
+
+## Make your repo good
 Make your repo "good", Add the follwing files, at least 50 lines each. For examples of good content, see [here](https://github.com/github-samples/copilot-hack/tree/main)
 
 - README.md: The front page of your repository. It includes the project description, installation instructions, and usage examples
@@ -101,12 +110,52 @@ see Essential Files for a Professional GitHub Repository on Medium.
 - docs/: Dedicated folder for detailed project documentation see Creating a default community health file on GitHub Docs. 
 - tests/: Your test code, will calls your src/hello.py files.
 
-Write a python package
+## Write a python package
 
-- Write a pyproject.toml file that enables local install (using `python3 -m pip install -e .`)
-- Change directories far away from your code and show you can run your code.
+Write a pyproject.toml file that enables local install (using `python3 -m pip install -e .`). FYI for my exr 
+code, that file is as follows. Your mileage will vary. When in doubt, ask Gemini or Claude.
 
 
-W
+```yaml
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
 
+[project]
+name = "ezr"
+version = "0.9.1"
+readme = "README.md"
+description = "Explainable multi-objective optimization"
+authors = [{name = "Tim Menzies", email = "timm@ieee.org"}]
+license = {text = "MIT"}
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+ezr = "ezeg:cli"
+
+[tool.setuptools]
+py-modules = ["ezr", "ezeg"]
+```
+
+> [!WARNING]
+> In the following, DO NOT NOT NOT NOT USE pypi.org. Do all your work in https://test.pypi.org.
+
+Make an accout at 
+https://test.pypi.org. 
+
+```bash
+pip install twine build
+python -m build
+twine upload --repository testpypi dist/*
+```
+
+Check it worked:
+
+```bash
+bashpip install --index-url https://test.pypi.org/simple/ your-package-name
+```
 
