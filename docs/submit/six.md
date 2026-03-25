@@ -36,10 +36,13 @@ To those files, add doc strings to each fucntion and a doc string to start of fi
 
 Run that code with pytest (hint: pip install pytest; pytest test.py).
 
-Document that code with some python 2 html generator (something simple like pycco or [pdoc](https://pdoc.dev/), not something more complex
-like mkdocs). Send the output of that code to a sub-directory called `docs` and a file called `docs/index.html`.
-To that subdirectory add a file with no content called
-`.nojeykll`.
+Document that code with some python 2 html generator:
+
+- Something simple like pycco or [pdoc](https://pdoc.dev/), not something more complex
+like mkdocs). 
+  - These can be installed using pip or your favorite local package manger
+  - Send the output of that code to a sub-directory called `docs` and a file called `docs/index.html`.
+  - To that subdirectory add a file with no content called `.nojeykll`.
 
 ## Agile Dev Ops
 
