@@ -56,6 +56,13 @@ sequenceDiagram
     Client->>API: GET /data        %% does API verify token?
 ```
 
+```mermaid
+sequenceDiagram
+    Client->>Auth: login(user,pass)
+    Auth-->>Client: token          %% should this be ->>?
+    Client->>API: GET /data        %% does API verify token?
+```
+
 **`.md` documentation** — wrong claim misleads everyone who
 reads it for the next two years:
 ```markdown
@@ -67,6 +74,9 @@ All endpoints require a Bearer token **except** `/health`.
 GitHub's diff tool treats all of these identically. You can
 comment on any line of any file. The review tooling doesn't
 care whether the artifact is "code."
+
+<img width="4332" height="2678" alt="image" src="https://github.com/user-attachments/assets/1f628577-0d09-4fc7-acef-85f2dcf2ebc1" />
+
 
 **So why do we call it "code review"?**
 
