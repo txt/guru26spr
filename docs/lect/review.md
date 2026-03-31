@@ -392,28 +392,59 @@ The TLA cheat sheet (these are the shorthand reviewers
 use — knowing them is like knowing the vocabulary of the
 conversation):
 
-**The Immortal Classics**
-- DRY — Don't Repeat Yourself
-- KISS — Keep It Simple, Stupid
-- YAGNI — You Ain't Gonna Need It
+## TLA Cheat Sheet
 
-**SOLID**
-- SRP — Single Responsibility Principle
-- OCP — Open/Closed Principle
-- LSP — Liskov Substitution Principle
-- ISP — Interface Segregation Principle
-- DIP — Dependency Inversion Principle
+Shorthand reviewers use — knowing these is knowing the vocabulary.
 
-**Design Principles**
-- LoD — Law of Demeter (don't talk to strangers)
-- CQS — Command Query Separation
-- POLA — Principle of Least Astonishment
-- TDA — Tell Don't Ask
+### The Immortal Classics
 
-**Readability & Testing**
-- SLAP — Single Level of Abstraction Principle
-- DAMP — Descriptive And Meaningful Phrases (test names)
-- AHA — Avoid Hasty Abstractions (don't DRY too early)
+| TLA | Meaning | One-liner |
+|-----|---------|-----------|
+| DRY | Don't Repeat Yourself | same logic in two places = two places to fix |
+| KISS | Keep It Simple, Stupid | the clever solution is rarely the good one |
+| YAGNI | You Ain't Gonna Need It | don't build for imagined future requirements |
+
+### SOLID
+
+| TLA | Meaning | One-liner |
+|-----|---------|-----------|
+| SRP | Single Responsibility Principle | one reason to change |
+| OCP | Open/Closed Principle | open for extension, closed for modification |
+| LSP | Liskov Substitution Principle | subclass must honour parent's contract — if `Square < Rectangle`, setting width must not silently break height; if you can't substitute child for parent without surprises, the hierarchy is wrong |
+| ISP | Interface Segregation Principle | small focused interfaces beat fat general ones — callers shouldn't depend on methods they don't use; split the interface before you split the class |
+| DIP | Dependency Inversion Principle | depend on abstractions not concretions — `sorter` should take a `Comparator`, not a `NameComparator`; high-level policy shouldn't import low-level detail |
+
+### Design Principles
+
+| TLA | Meaning | One-liner |
+|-----|---------|-----------|
+| LoD | Law of Demeter | only talk to your immediate neighbours — `a.b.c.d()` is three violations; each dot is a dependency on something you shouldn't know exists |
+| CQS | Command Query Separation | a function either changes state or returns a value, not both |
+| POLA | Principle of Least Astonishment | code should do what the reader expects — if you have to explain why it works, it violates POLA; surprise is a bug |
+| TDA | Tell Don't Ask | tell objects what to do; don't interrogate their state — `account.withdraw(50)` not `if account.balance > 50 then account.balance -= 50`; logic belongs with data |
+
+Re TDA:
+```py
+#Ask (bad) — logic leaks out of the object
+if account.balance > amount:
+    account.balance -= amount
+    account.log("withdrew")
+else:
+    account.log("failed")
+
+# Tell (good) — logic stays inside where the data lives
+account.withdraw(amount)
+```
+
+### Readability & Testing
+
+| TLA | Meaning | One-liner |
+|-----|---------|-----------|
+| SLAP | Single Level of Abstraction Principle | one function, one altitude — don't mix `parse_csv()` and `trim_whitespace()` in the same body as `run_model()`; reader shouldn't context-switch between levels |
+| DAMP | Descriptive And Meaningful Phrases | test names should read like sentences — `test_withdrawing_more_than_balance_raises` beats `test_withdraw_2` |
+| AHA | Avoid Hasty Abstractions | don't DRY too early — duplication is cheaper than the wrong abstraction; wait for the third repetition before extracting |
+
+ 
 
 These aren't rules to memorize. They're **shared vocabulary**
 that lets a reviewer say "ISP violation, line 47" instead
