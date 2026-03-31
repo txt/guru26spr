@@ -20,6 +20,42 @@
 
 ---
 
+<img width="500"  align=right  alt="image" src="https://github.com/user-attachments/assets/e400cda7-72f1-4162-b49f-87849ca88db9" />
+
+Q: **Has AI Replaced Code Review?**
+
+A: No. Quite the opposite.
+
+A reasonable expectation was that LLMs would reduce the
+need for human review. Generate better code, catch more
+bugs automatically, close the loop without the meeting.
+
+Wrong!
+
+AI has *multiplied* the volume of code that needs reviewing.
+A developer who once wrote 200 lines a day now ships 2,000.
+The bottleneck has shifted: writing is no longer the hard
+part. Reading, understanding, and trusting what gets merged
+is. Manual review — careful, human, contextual — is now
+the majority activity in a working software engineer's day.
+At Google, developers already spent ~3 hours/day on review
+before LLMs. That number is going up, not down.
+
+There is a deeper problem. LLM-generated code is fluent and
+plausible. It looks right. It compiles. It passes the tests
+you thought to write. The bugs it introduces are not the
+obvious kind — they are the subtle kind, the kind that only
+show up when someone who understands the system reads the
+code and asks "wait, why?" That person is you. That process
+is review. If anything, the age of AI has made code review
+the core competency of professional software engineering —
+not a courtesy, not a compliance checkbox, but the primary
+mechanism by which teams maintain shared understanding of
+systems that are now being written faster than any
+individual can track.
+
+<br clear=all>
+
 ## 0. Hook: Is It Even "Code" Review? 
 
 Before we look at history, a provocation.
