@@ -73,7 +73,7 @@ work remains accessible to future generations.
 | Mar 11 | [Vibe Coding](docs/lect/vibe.md) <br> [Additional Materials](docs/lect/VIBE_coding_materials)|[4a](docs/submit/four/todo.md) | [w8](docs/review/w8.md) | 
 | Mar 18 | Spring Break (no class) | | |
 | Mar 25 | [packages](docs/lect/package.md)<br>[repo](docs/lect/repo.md)  | | [w9](docs/review/w9.md)|
-| Apr 01 |[code review](docs/lect/review.md) |[4b](https://github.com/txt/guru26spr/blob/main/docs/submit/four/hw4b.md) <br> [ST tutorial](docs/lect/st101.md)<br>[ST cheatsheet](docs/lect/learn.st) | |
+| Apr 01 |[code review](docs/lect/review.md) |[4b](https://github.com/txt/guru26spr/blob/main/docs/submit/four/hw4b.md) <br> [ST tutorial](docs/lect/st101.md)<br>[ST cheatsheet](docs/lect/learn.st) | [w10](docs/review/w10.md) |
 | Apr 08 | |[5a](docs/submit/five/five.md) | |
 | Apr 15 | |5b | |
 | Apr 22 | | [6a](docs/submit/six.md)   | |
