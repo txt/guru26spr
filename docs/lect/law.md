@@ -772,7 +772,7 @@ legal and security implications are severe:
 
 ---
 
-## Summary: Five Things to Do This Week
+## Summary: Five Things to Do
 
 1. **Audit your dependencies' licences** with `pip-licenses` or
    `license-checker`. Fix any AGPL or GPL violations in commercial
@@ -828,7 +828,7 @@ legal and security implications are severe:
 
 ## Review Questions
 
-### Low Bloom (recall / understand, ~2 min each)
+### Simple Questions
 
 1. What is the difference between "Free Software" (FSF) and "Open
    Source" (OSI)? Give one practical consequence of the distinction.
@@ -845,7 +845,7 @@ legal and security implications are severe:
    distinction the court drew between "training use" and "database
    storage"? What is the SE implication?
 
-### High Bloom (analyse / evaluate / design, ~4 min each)
+### Harder
 
 6. A startup wants to build a commercial product on top of a GPL v3
    library. The CTO says: "It's fine, GPL is just about sharing
