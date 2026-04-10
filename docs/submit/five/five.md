@@ -324,35 +324,6 @@ The key idea is:
 
 ---
 
-## Grading rubric
-
-### 40% Correct running code
-
-* files run from `gst`
-* output is readable
-* no syntax errors
-
-### 30% Collection fluency
-
-* correct use of `do:`
-* correct use of `collect:`
-* correct use of `select:` or `reject:`
-* correct use of `inject:into:`
-
-### 20% DSL instinct
-
-* you identified a repeated idiom
-* your helper name is sensible
-* your final call site reads more clearly
-
-### 10% Clarity
-
-* clean output
-* comments where needed
-* simple `README.md`
-
----
-
 ## Optional extra credit
 
 If you finish early, do one of these:
